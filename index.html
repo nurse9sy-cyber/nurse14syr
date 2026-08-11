@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -190,14 +189,12 @@ button{font-family:inherit}
 .verification-status.unverified{background:#fef3c7;border:1px solid var(--warning)}
 .verification-status-icon{width:24px;height:24px;flex-shrink:0}
 .verification-status-text{font-size:.88rem;font-weight:600}
-.toggle-container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--g50);border-radius:var(--r)}
-.toggle-switch{position:relative;width:56px;height:30px;flex-shrink:0}
-.toggle-switch input{opacity:0;width:0;height:0}
-.toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--g300);border-radius:30px;transition:var(--tr)}
-.toggle-slider::before{content:'';position:absolute;height:22px;width:22px;left:4px;bottom:4px;background:var(--white);border-radius:50%;transition:var(--tr)}
-input:checked+.toggle-slider{background:var(--success)}
-input:checked+.toggle-slider::before{transform:translateX(26px)}
-[dir="rtl"] input:checked+.toggle-slider::before{transform:translateX(-26px)}
+/* CSS for the new Days Grid Selector */
+.days-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px;margin-bottom:10px}
+.day-cb{cursor:pointer;user-select:none}
+.day-cb input{display:none}
+.day-cb span{display:block;text-align:center;padding:10px 4px;background:var(--g50);border:2px solid var(--g200);border-radius:var(--r);font-size:.85rem;font-weight:600;color:var(--g600);transition:var(--tr)}
+.day-cb input:checked + span{background:#DCF3E7;border-color:var(--success);color:#0C6E44;font-weight:700}
 .delete-box{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r);padding:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .delete-box p{font-size:.85rem;color:var(--g700);flex:1;min-width:200px}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:2000;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
@@ -237,17 +234,13 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .footer-credit{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.78rem;color:var(--g500)}
 .footer-credit strong{color:var(--g300);font-weight:700;letter-spacing:.02em;font-family:var(--font-mono)}
 .footer-credit-mark{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--primary-light),var(--gold));color:var(--primary-dark);font-family:var(--font-mono);font-weight:700;font-size:.72rem;flex-shrink:0}
-/* ===== تجاوب الجوال ===== */
 @media(max-width:640px){
-/* شريط التنقل: أضغط وأخف مع مساحات لمس مريحة */
 .navbar-inner{padding:8px 14px;gap:8px}
 .brand-icon{width:30px;height:30px}
 .brand-name{font-size:.98rem}
 .brand-sub{display:none}
 .nav-actions{gap:6px}
 .btn-lang{padding:8px 10px;font-size:.78rem}
-
-/* البطل: ترويسة خفيفة وبسيطة تفسح المجال لعرض الممرضين */
 .hero{padding:16px 16px 20px}
 .hero::before{animation:none}
 .hero-badge{display:none}
@@ -255,8 +248,6 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .hero p{display:none}
 .hero-stats{display:none}
 .hero-logo{width:130px;height:130px;opacity:.06}
-
-/* منطقة البحث: فلاتر قابلة للطي لتقليل التمرير والوصول أسرع للنتائج */
 .search-section{padding:14px 14px 10px}
 .filters-toggle{display:flex!important;align-items:center;justify-content:space-between;width:100%;padding:11px 14px;min-height:44px;background:var(--g50);border:2px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:.88rem;font-weight:700;color:var(--g700);margin-bottom:0}
 .filters-toggle svg{width:16px;height:16px;transition:transform .2s ease}
@@ -268,8 +259,6 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .search-bar .btn{width:auto;padding:0 16px}
 .results-info{margin-top:12px;padding-top:10px}
 .press-hint{display:none}
-
-/* بطاقات الممرضين: شبكة أفقية مضغوطة (عمودان) بأسلوب متاجر التطبيقات */
 .nurses-section{padding:14px 10px}
 .nurses-grid{grid-template-columns:1fr 1fr;gap:10px}
 .nurse-card{padding:12px;border-radius:14px;cursor:pointer}
@@ -293,12 +282,10 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .card-actions .btn .btn-txt{display:none}
 .card-actions .btn-icon{width:15px;height:15px}
 .card-actions .btn-rate{flex:0 0 40px;padding:9px}
-
 .auth-section{padding:20px 12px;min-height:calc(100vh - 160px)}
 .auth-card{padding:22px 16px;border-radius:18px}
 .auth-card input,.auth-card select,.auth-card textarea{font-size:16px}
 .form-row{grid-template-columns:1fr}
-
 .dashboard-section{padding:18px 12px}
 .dashboard-header{flex-direction:column;text-align:center;padding:20px}
 .dashboard-welcome h2{justify-content:center}
@@ -306,8 +293,6 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .profileForm input,.profileForm select,#profileForm input,#profileForm select{font-size:16px}
 .delete-box{flex-direction:column;align-items:stretch}
 .delete-box .btn{width:100%}
-
-/* نوافذ منبثقة (Info/Rate/Delete) تتحول إلى ورقة سفلية أقرب لتطبيقات الجوال الأصلية */
 .info-overlay,.modal-overlay{align-items:flex-end;padding:0}
 .info-card,.modal{max-width:100%;width:100%;border-radius:20px 20px 0 0;padding:14px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:88vh;transform:translateY(100%);transition:transform .28s cubic-bezier(.32,.72,0,1)}
 .info-overlay.active .info-card,.modal-overlay.active .modal{transform:translateY(0)}
@@ -315,7 +300,6 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .info-close{top:14px}
 [dir="rtl"] .info-close{left:14px;right:auto}
 .modal-close{top:16px}
-
 .footer-bottom{flex-direction:column;text-align:center;align-items:center}
 }
 @media(max-width:400px){
@@ -470,6 +454,22 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
       <div class="stat-card"><svg class="stat-icon" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 14 L26 14 M14 20 L26 20" stroke="currentColor" stroke-width="2"/></svg><div class="stat-value" id="dashReviews">0</div><div class="stat-label" data-i18n="total_reviews">إجمالي التقييمات</div></div>
       <div class="stat-card"><svg class="stat-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><path d="M20 12 L20 20 L26 24" stroke="currentColor" stroke-width="2"/></svg><div class="stat-value" id="dashExperience">0</div><div class="stat-label" data-i18n="years_exp">سنوات الخبرة</div></div>
     </div>
+    
+    <div class="dashboard-card">
+      <h3 data-i18n="availability">التوفر</h3>
+      <p style="color:var(--g500); font-size:0.85rem; margin-bottom:14px;" data-i18n="availability_hint">اختر الأيام التي تكون فيها متاحاً للعمل. ستصبح متاحاً وتظهر حسابك للمستخدمين في هذه الأيام فقط.</p>
+      <div class="days-grid">
+        <label class="day-cb"><input type="checkbox" value="6" name="availDay"><span data-i18n="sat">السبت</span></label>
+        <label class="day-cb"><input type="checkbox" value="0" name="availDay"><span data-i18n="sun">الأحد</span></label>
+        <label class="day-cb"><input type="checkbox" value="1" name="availDay"><span data-i18n="mon">الإثنين</span></label>
+        <label class="day-cb"><input type="checkbox" value="2" name="availDay"><span data-i18n="tue">الثلاثاء</span></label>
+        <label class="day-cb"><input type="checkbox" value="3" name="availDay"><span data-i18n="wed">الأربعاء</span></label>
+        <label class="day-cb"><input type="checkbox" value="4" name="availDay"><span data-i18n="thu">الخميس</span></label>
+        <label class="day-cb"><input type="checkbox" value="5" name="availDay"><span data-i18n="fri">الجمعة</span></label>
+      </div>
+      <button class="btn btn-primary" style="margin-top:10px; width:100%" onclick="saveAvailabilityDays()" data-i18n="save_changes">حفظ التغييرات</button>
+    </div>
+
     <div class="dashboard-card">
       <h3 data-i18n="verification_status">حالة التوثيق</h3>
       <div id="verificationStatusBox" class="verification-status unverified">
@@ -492,13 +492,7 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
       </div>
       <button class="btn btn-primary" onclick="saveVerification()" data-i18n="save_verification">حفظ التوثيق</button>
     </div>
-    <div class="dashboard-card">
-      <h3 data-i18n="availability">التوفر</h3>
-      <div class="toggle-container">
-        <div><h4 data-i18n="available_for_hire">متاح/ة للعمل</h4><p data-i18n="toggle_desc">تبديل حالة التوفر للعملاء المحتملين</p></div>
-        <label class="toggle-switch"><input type="checkbox" id="availabilityToggle" onchange="toggleAvailability()"><span class="toggle-slider"></span></label>
-      </div>
-    </div>
+    
     <div class="dashboard-card">
       <h3 data-i18n="profile_information">معلومات الملف الشخصي</h3>
       <form class="auth-form" id="profileForm" onsubmit="handleProfileUpdate(event)">
@@ -610,8 +604,8 @@ document.dispatchEvent(new Event('firebaseReady'));
 
 <script>
 const T = {
-  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",all_areas:"جميع المحافظات",gender:"النوع",all:"الكل",male:"ممرض",female:"ممرضة",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"التوفر",available_for_hire:"متاح/ة للعمل",toggle_desc:"تبديل حالة التوفر للعملاء المحتملين",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث حالة التوفر!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حسابك موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_gender:"النوع",info_exp:"الخبرة",info_gov:"المحافظة",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",gender_locked_note:"لا يمكن تغيير هذا الحقل بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير"},
-  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",all_areas:"All Governorates",gender:"Gender",all:"All",male:"Male Nurse",female:"Female Nurse",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability",available_for_hire:"Available for Hire",toggle_desc:"Toggle your availability status",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability updated!",rating_submitted:"Thank you! Rating submitted.",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_gender:"Gender",info_exp:"Experience",info_gov:"Governorate",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",gender_locked_note:"This field cannot be changed after account creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by"}
+  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",all_areas:"جميع المحافظات",gender:"النوع",all:"الكل",male:"ممرض",female:"ممرضة",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"التوفر",availability_hint:"اختر الأيام التي تكون فيها متاحاً للعمل. ستصبح متاحاً وتظهر حسابك للمستخدمين في هذه الأيام فقط.",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث حالة التوفر!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حسابك موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_gender:"النوع",info_exp:"الخبرة",info_gov:"المحافظة",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",avail_days_label:"أيام التوفر",everyday:"كل الأيام",none:"غير متاح",sun:"الأحد",mon:"الإثنين",tue:"الثلاثاء",wed:"الأربعاء",thu:"الخميس",fri:"الجمعة",sat:"السبت",gender_locked_note:"لا يمكن تغيير هذا الحقل بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير"},
+  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",all_areas:"All Governorates",gender:"Gender",all:"All",male:"Male Nurse",female:"Female Nurse",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability",availability_hint:"Select the days you are available. You will automatically appear online to users on these days only.",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability updated!",rating_submitted:"Thank you! Rating submitted.",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_gender:"Gender",info_exp:"Experience",info_gov:"Governorate",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",avail_days_label:"Available Days",everyday:"Every day",none:"None",sun:"Sun",mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",gender_locked_note:"This field cannot be changed after account creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by"}
 };
 
 const S = {
@@ -622,7 +616,7 @@ const S = {
   pending: { graduation:null, practice:null },
   regFiles: { graduation:null, practice:null }
 };
-const PAGE = 20;
+const PAGE = 40; // Increased to offset filtered out unavailable nurses
 
 document.addEventListener('firebaseReady', init);
 document.addEventListener('DOMContentLoaded', () => { if (window.appInitialized) init(); });
@@ -658,7 +652,6 @@ function buildRatingStars(){
   });
 }
 
-/* ===== الضغط المطول + زر المعلومات (متوافق مع اللمس) ===== */
 function bindPress(){
   const grid = document.getElementById('nursesGrid');
   const overlay = document.getElementById('infoOverlay');
@@ -681,7 +674,6 @@ function bindPress(){
   ['pointerup','pointerleave','pointercancel'].forEach(ev => grid.addEventListener(ev, stop));
   grid.addEventListener('touchend', stop);
 
-  // زر ⓘ يفتح البطاقة بشكل ثابت حتى إغلاقها
   grid.addEventListener('click', e => {
     const b = e.target.closest('[data-info]');
     if (!b) return;
@@ -691,7 +683,6 @@ function bindPress(){
     show(n);
   });
 
-  // الضغط على أي جزء من البطاقة (خارج الأزرار الفعلية) يفتح التفاصيل الكاملة
   grid.addEventListener('click', e => {
     const card = e.target.closest('.nurse-card');
     if (!card) return;
@@ -715,11 +706,24 @@ function bindPress(){
 function fillInfo(n){
   const d = T[S.lang];
   const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
+  
+  // Format the available days for the info card
+  const dayKeys = ['sun','mon','tue','wed','thu','fri','sat'];
+  const daysList = n.availableDays ? 
+    (n.availableDays.length === 7 ? d.everyday : 
+     n.availableDays.length === 0 ? d.none : 
+     n.availableDays.map(dayNum => d[dayKeys[dayNum]]).join('، ')) 
+    : d.everyday;
+
+  // Since we only display online nurses via applyFilters, this will always be true when viewed here
+  const today = new Date().getDay();
+  const isOnlineNow = n.availableDays ? n.availableDays.includes(today) : (n.isAvailable !== false);
+
   document.getElementById('infoCard').innerHTML =
     '<div class="sheet-handle"></div>'+
     '<button class="info-close" onclick="closeInfo()"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3 L13 13 M13 3 L3 13" stroke="currentColor" stroke-width="2"/></svg></button>'+
     '<div class="info-head"><div class="info-name">'+esc(n.fullName||'')+'</div>'+badge+'</div>'+
-    '<div class="info-sub">'+esc(n.university||'')+' • <span class="availability-badge '+(n.isAvailable?'available':'unavailable')+'" style="padding:2px 8px"><span class="availability-dot"></span>'+(n.isAvailable?d.available:d.unavailable)+'</span></div>'+
+    '<div class="info-sub">'+esc(n.university||'')+' • <span class="availability-badge '+(isOnlineNow?'available':'unavailable')+'" style="padding:2px 8px"><span class="availability-dot"></span>'+(isOnlineNow?d.available:d.unavailable)+'</span></div>'+
     '<div class="info-grid">'+
     '<div class="info-item"><div class="info-label">'+d.info_age+'</div><div class="info-value">'+(n.age||'-')+'</div></div>'+
     '<div class="info-item"><div class="info-label">'+d.info_gender+'</div><div class="info-value">'+(n.gender==='male'?d.male:d.female)+'</div></div>'+
@@ -728,6 +732,7 @@ function fillInfo(n){
     '<div class="info-item"><div class="info-label">'+d.info_gov+'</div><div class="info-value">'+esc(n.governorate||'')+'</div></div>'+
     '<div class="info-item"><div class="info-label">'+d.info_area+'</div><div class="info-value">'+esc(n.cityArea||'')+'</div></div>'+
     '<div class="info-item full"><div class="info-label">'+d.info_uni+'</div><div class="info-value">'+esc(n.university||'')+'</div></div>'+
+    '<div class="info-item full"><div class="info-label" style="color:var(--primary)">'+d.avail_days_label+'</div><div class="info-value" style="color:var(--primary-dark)">'+daysList+'</div></div>'+
     '</div>'+
     '<div class="info-contacts">'+
     '<div class="info-contact"><div class="info-contact-label">'+d.info_phone+'</div><div class="info-contact-value">'+esc(n.phoneNumber||'-')+'</div></div>'+
@@ -736,8 +741,6 @@ function fillInfo(n){
 }
 
 function closeInfo(){ document.getElementById('infoOverlay').classList.remove('active'); unlockScroll(); }
-
-/* ===== قفل التمرير عند فتح ورقة سفلية/نافذة، لتجربة أنعم على الجوال ===== */
 function lockScroll(){ document.body.classList.add('sheet-open'); }
 function unlockScroll(){
   if (!document.getElementById('infoOverlay').classList.contains('active') &&
@@ -747,7 +750,6 @@ function unlockScroll(){
   }
 }
 
-/* ===== طي/فتح لوحة الفلاتر على الجوال ===== */
 function toggleFiltersPanel(){
   const p = document.getElementById('searchFilters');
   const b = document.getElementById('filtersToggle');
@@ -755,7 +757,6 @@ function toggleFiltersPanel(){
   b.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
 
-/* ===== سحب لأسفل لإغلاق الورقة السفلية على الجوال ===== */
 function enableSwipeToClose(sheetEl, closeFn){
   let startY = 0, currentY = 0, dragging = false;
   const threshold = 90;
@@ -896,6 +897,7 @@ async function handleRegister(e){
       yearsOfExperience: parseInt(document.getElementById('regExperience').value),
       whatsappNumber: document.getElementById('regWhatsapp').value,
       phoneNumber: document.getElementById('regPhone').value,
+      availableDays: [0,1,2,3,4,5,6], // All days by default
       isAvailable: true, ratingAvg: 0, reviewsCount: 0, isVerified: false,
       disclaimerAccepted: true, disclaimerAcceptedAt: window.F.serverTimestamp(),
       createdAt: window.F.serverTimestamp()
@@ -967,7 +969,13 @@ function updateDashboard(){
   document.getElementById('dashRating').textContent = (p.ratingAvg || 0).toFixed(1);
   document.getElementById('dashReviews').textContent = p.reviewsCount || 0;
   document.getElementById('dashExperience').textContent = p.yearsOfExperience || 0;
-  document.getElementById('availabilityToggle').checked = !!p.isAvailable;
+  
+  // Set the checkbox values according to DB state
+  const days = p.availableDays || [0,1,2,3,4,5,6]; // Default backward compatibility
+  document.querySelectorAll('input[name="availDay"]').forEach(cb => {
+    cb.checked = days.includes(parseInt(cb.value));
+  });
+
   document.getElementById('dashVerifiedBadge').classList.toggle('hidden', !p.isVerified);
   const box = document.getElementById('verificationStatusBox');
   box.className = 'verification-status ' + (p.isVerified ? 'verified' : 'unverified');
@@ -981,6 +989,17 @@ function updateDashboard(){
   document.getElementById('profileGender').value = p.gender || 'male';
   document.getElementById('profilePhone').value = p.phoneNumber || '';
   document.getElementById('profileWhatsapp').value = p.whatsappNumber || '';
+}
+
+async function saveAvailabilityDays() {
+  if (!S.user) return;
+  // Get currently checked days from UI
+  const checkedDays = Array.from(document.querySelectorAll('input[name="availDay"]:checked')).map(cb => parseInt(cb.value));
+  try {
+    await window.F.updateDoc(window.F.doc(window.firebaseDb, 'nurses', S.user.uid), { availableDays: checkedDays });
+    if(S.profile) S.profile.availableDays = checkedDays;
+    toast(T[S.lang].availability_updated, 'success');
+  } catch(err) { toast(err.message, 'error'); }
 }
 
 async function saveVerification(){
@@ -1015,16 +1034,6 @@ async function handleProfileUpdate(e){
   } catch(err) { toast(err.message, 'error'); }
 }
 
-async function toggleAvailability(){
-  if (!S.user) return;
-  const v = document.getElementById('availabilityToggle').checked;
-  try {
-    await window.F.updateDoc(window.F.doc(window.firebaseDb, 'nurses', S.user.uid), { isAvailable: v });
-    S.profile.isAvailable = v;
-    toast(T[S.lang].availability_updated, 'success');
-  } catch(err) { document.getElementById('availabilityToggle').checked = !v; toast(err.message, 'error'); }
-}
-
 async function loadInitial(){
   S.nurses = []; S.lastDoc = null; S.hasMore = true;
   document.getElementById('nursesGrid').innerHTML = '';
@@ -1055,7 +1064,15 @@ async function loadMore(){
 
 function applyFilters(list){
   const f = S.filters;
-  let out = list;
+  const today = new Date().getDay(); // 0 (Sun) to 6 (Sat)
+  
+  // Filter out offline nurses entirely based on today's schedule
+  let out = list.filter(n => {
+    // If availableDays exists, check today. Else fallback to old isAvailable check for backward compatibility.
+    const isOnlineToday = n.availableDays ? n.availableDays.includes(today) : (n.isAvailable !== false);
+    return isOnlineToday;
+  });
+
   if (f.governorate) out = out.filter(n => (n.governorate || '') === f.governorate);
   if (f.gender) out = out.filter(n => (n.gender || '') === f.gender);
   if (f.experience === 'junior') out = out.filter(n => (n.yearsOfExperience || 0) < 2);
@@ -1083,7 +1100,10 @@ function card(n){
   const d = T[S.lang], r = n.ratingAvg || 0, rv = n.reviewsCount || 0;
   const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
   const initial = (n.fullName||'?').trim().charAt(0);
-  return '<div class="nurse-card" data-card-id="'+n.id+'"><div class="card-header"><div class="card-avatar">'+esc(initial)+'</div><div class="card-header-text"><div class="card-name-wrapper"><span class="press-target" data-id="'+n.id+'"><span class="card-name">'+esc(n.fullName||'')+'</span></span>'+badge+'<button class="info-btn" data-info="'+n.id+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg></button></div><div class="card-uni">'+esc(n.university||'')+'</div></div><span class="availability-badge '+(n.isAvailable?'available':'unavailable')+'"><span class="availability-dot"></span>'+(n.isAvailable?d.available:d.unavailable)+'</span></div>'+
+  
+  // Since we filtered out offline nurses, everyone here is automatically "Available". 
+  // We keep the dynamic check visually identical.
+  return '<div class="nurse-card" data-card-id="'+n.id+'"><div class="card-header"><div class="card-avatar">'+esc(initial)+'</div><div class="card-header-text"><div class="card-name-wrapper"><span class="press-target" data-id="'+n.id+'"><span class="card-name">'+esc(n.fullName||'')+'</span></span>'+badge+'<button class="info-btn" data-info="'+n.id+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg></button></div><div class="card-uni">'+esc(n.university||'')+'</div></div><span class="availability-badge available"><span class="availability-dot"></span>'+d.available+'</span></div>'+
   '<div class="card-details">'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6 L12 12 L16 14" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.experience+'</div><div class="card-detail-value">'+(n.yearsOfExperience||0)+' '+d.yrs+'</div></div></div>'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2 C8 2 5 5 5 9 C5 14 12 22 12 22 C12 22 19 14 19 9 C19 5 16 2 12 2 Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.governorate+'</div><div class="card-detail-value">'+esc(n.governorate||'')+'</div></div></div>'+
@@ -1123,7 +1143,6 @@ function resetFilters(){
   loadInitial();
 }
 
-/* ===== التقييم ===== */
 function openRateModal(id){
   document.getElementById('ratingNurseId').value = id;
   document.getElementById('ratingValue').value = 0;
@@ -1161,7 +1180,6 @@ async function submitRating(e){
   } catch(err) { console.error(err); toast(d.error_occurred, 'error'); }
 }
 
-/* ===== أدوات ===== */
 function showLoad(v){ document.getElementById('loadingSpinner').classList.toggle('hidden', !v); }
 function updateStats(){
   document.getElementById('statNurses').textContent = S.nurses.length;
@@ -1176,7 +1194,6 @@ function toast(m, t){
 }
 function esc(s){ const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
-/* ===== تصدير الدوال للنوافذ ===== */
 window.toggleLanguage = toggleLanguage;
 window.navigate = navigate;
 window.handleLogin = handleLogin;
@@ -1192,7 +1209,7 @@ window.closeRateModal = closeRateModal;
 window.setRating = setRating;
 window.submitRating = submitRating;
 window.handleProfileUpdate = handleProfileUpdate;
-window.toggleAvailability = toggleAvailability;
+window.saveAvailabilityDays = saveAvailabilityDays;
 window.handleCertSelect = handleCertSelect;
 window.saveVerification = saveVerification;
 window.openDeleteModal = openDeleteModal;
@@ -1202,7 +1219,6 @@ window.confirmDeleteAccount = confirmDeleteAccount;
 window.closeInfo = closeInfo;
 window.toggleFiltersPanel = toggleFiltersPanel;
 
-/* ===== مستمعات الأحداث ===== */
 document.getElementById('rateModal').addEventListener('click', e => { if (e.target.id === 'rateModal') closeRateModal(); });
 document.getElementById('deleteModal').addEventListener('click', e => { if (e.target.id === 'deleteModal') closeDeleteModal(); });
 document.addEventListener('keydown', e => {
