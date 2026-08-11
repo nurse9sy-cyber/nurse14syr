@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2 C12 2 6 8 6 15 C6 24 20 38 20 38 C20 38 34 24 34 15 C34 8 28 2 20 2 Z' fill='%230B6E64'/%3E%3Cpath d='M20 9 L20 21 M14 15 L26 15' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<!-- أيقونة مجردة للموقع مع إشارة طبيّة -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z' fill='%230B6E64'/%3E%3Cpath d='M12 6v6m-3-3h6' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
 :root{--primary:#0B6E64;--primary-light:#4FD1B8;--primary-dark:#073F3A;--secondary:#EAF7F3;--success:#0FA968;--warning:#f59e0b;--danger:#E15850;--verified:#1C7FA0;--coral:#E8604F;--coral-dark:#C94B3C;--gold:#E3A430;--g50:#F3F8F7;--g100:#E7F1EF;--g200:#D3E3E0;--g300:#B3C9C5;--g500:#6C8683;--g600:#4E6663;--g700:#37504D;--g800:#223836;--g900:#122422;--white:#fff;--sh:0 4px 6px -1px rgba(11,110,100,.08),0 2px 4px -2px rgba(11,110,100,.06);--shl:0 20px 25px -5px rgba(11,110,100,.14),0 8px 10px -6px rgba(11,110,100,.08);--r:12px;--rl:18px;--rxl:26px;--tr:all .3s cubic-bezier(.4,0,.2,1);--font-mono:'JetBrains Mono',monospace}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -17,21 +20,18 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{overflow-x:hidden}
 body{font-family:'Cairo',sans-serif;background:var(--g50);color:var(--g800);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
 body.sheet-open{overflow:hidden;height:100vh}
-@media(hover:none){
-  a,button,.btn,.press-target,.info-btn,.nurse-card{-webkit-user-drag:none}
-}
+@media(hover:none){ a,button,.btn,.press-target,.info-btn,.nurse-card{-webkit-user-drag:none} }
 @supports(padding:max(0px)){
   .navbar-inner{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
   .footer{padding-bottom:max(18px,env(safe-area-inset-bottom))}
 }
-@media(prefers-reduced-motion:reduce){
-  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-}
+@media(prefers-reduced-motion:reduce){ *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important} }
 [dir="rtl"] body{text-align:right}
 .hidden{display:none!important}
 main{flex:1}
 button{font-family:inherit}
 :focus-visible{outline:2.5px solid var(--primary-light);outline-offset:2px;border-radius:4px}
+
 .navbar{background:var(--white);border-bottom:1px solid var(--g200);position:sticky;top:0;z-index:1000;box-shadow:var(--sh)}
 .navbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:1280px;margin:0 auto;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--g900)}
@@ -56,11 +56,11 @@ button{font-family:inherit}
 .btn-danger{background:var(--danger);color:var(--white)}
 .btn-danger:disabled{background:var(--g300);cursor:not-allowed}
 .btn-sm{padding:7px 12px;font-size:.82rem;min-height:40px}
+
 .hero{background:linear-gradient(160deg,var(--primary),var(--primary-dark));color:var(--white);padding:56px 20px 68px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='46' viewBox='0 0 140 46'%3E%3Cpath d='M0 23 H46 L54 6 L64 40 L72 23 H140' fill='none' stroke='rgba(255,255,255,0.16)' stroke-width='2'/%3E%3C/svg%3E");background-repeat:repeat;background-size:140px 46px;animation:pulseScroll 9s linear infinite}
-.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:34px;background-repeat:repeat-x;background-size:70px 34px;background-position:0 0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='34' viewBox='0 0 70 34'%3E%3Cpath d='M0 17 H23 L27 3 L32 30 L36 17 H70' fill='none' stroke='%23F3F8F7' stroke-width='2.5'/%3E%3C/svg%3E")}
-@keyframes pulseScroll{to{background-position:140px 0}}
-.hero-logo{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;opacity:.07;pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;opacity:.15;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cpath d='M0 30 L 20 30 L 25 15 L 35 50 L 45 10 L 50 30 L 120 30' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:repeat-x;background-position:center;animation:pulseScroll 15s linear infinite}
+@keyframes pulseScroll{to{background-position:240px center}}
+.hero-logo{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;opacity:.05;pointer-events:none}
 .hero-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:30px;font-size:.85rem;margin-bottom:20px;backdrop-filter:blur(4px)}
 .hero h1{font-size:clamp(1.6rem,5vw,2.8rem);font-weight:900;margin-bottom:12px;letter-spacing:-.01em}
@@ -68,6 +68,7 @@ button{font-family:inherit}
 .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:24px;flex-wrap:wrap}
 .hero-stat-num{font-family:var(--font-mono);font-size:1.8rem;font-weight:700;display:block;font-variant-numeric:tabular-nums}
 .hero-stat-label{font-size:.85rem;opacity:.8}
+
 .search-section{background:var(--white);padding:28px 20px;border-bottom:1px solid var(--g200)}
 .search-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:0 auto 16px;max-width:1280px}
 .filters-toggle{display:none}
@@ -77,11 +78,13 @@ button{font-family:inherit}
 .search-bar{display:flex;gap:10px;max-width:1280px;margin:0 auto}
 .search-bar input{flex:1;font-size:1rem}
 .results-info{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:16px auto 0;padding-top:14px;border-top:1px solid var(--g100);flex-wrap:wrap;gap:10px}
-.results-count{font-size:.9rem;color:var(--g600)}
+.results-count{font-size:.9rem;color:var(--g600);display:flex;align-items:center;gap:6px;}
 .results-count strong{color:var(--primary);font-family:var(--font-mono)}
+
 .press-hint{max-width:1280px;margin:10px auto 0;font-size:.78rem;color:var(--g500);display:flex;align-items:center;gap:6px}
 .press-hint svg{width:14px;height:14px;flex-shrink:0}
 .nurses-section{padding:36px 20px;max-width:1280px;margin:0 auto}
+
 .nurses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
 .nurse-card{background:var(--white);border-radius:var(--rl);padding:22px;box-shadow:var(--sh);transition:var(--tr);border:1px solid var(--g100);position:relative;overflow:hidden}
 .nurse-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold))}
@@ -98,6 +101,12 @@ button{font-family:inherit}
 .verified-badge{display:inline-flex;width:20px;height:20px;flex-shrink:0;color:var(--verified)}
 .info-btn{width:28px;height:28px;border-radius:50%;border:none;background:var(--g100);color:var(--g500);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--tr)}
 .info-btn:hover,.info-btn:active{background:var(--primary);color:var(--white)}
+
+.btn-fav { background: transparent; border: none; color: var(--g300); cursor: pointer; padding: 4px; transition: var(--tr); flex-shrink:0; }
+.btn-fav.active { color: var(--coral); }
+.btn-fav:hover { transform: scale(1.1); }
+#favFilterBtn.active { background: var(--coral); color: var(--white); border-color: var(--coral); }
+
 .card-uni{font-size:.8rem;color:var(--g500)}
 .availability-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700;flex-shrink:0}
 .availability-badge.available{background:#DCF3E7;color:#0C6E44}
@@ -122,7 +131,8 @@ button{font-family:inherit}
 .card-actions .btn-rate:hover{background:var(--gold);color:var(--white)}
 .load-more-container{text-align:center;margin-top:36px}
 .load-more-container .btn{padding:14px 40px;font-size:1rem}
-.info-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:1500;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
+
+.info-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
 .info-overlay.active{opacity:1;visibility:visible;pointer-events:auto}
 .info-card{background:var(--white);border-radius:var(--rl);padding:20px;width:100%;max-width:340px;box-shadow:var(--shl);transform:scale(.95);transition:transform .2s cubic-bezier(.34,1.3,.64,1);max-height:85vh;overflow-y:auto;overscroll-behavior:contain;position:relative}
 .info-overlay.active .info-card{transform:scale(1)}
@@ -140,6 +150,14 @@ button{font-family:inherit}
 .info-contact{background:var(--g50);border-radius:8px;padding:8px 10px;text-align:center}
 .info-contact-label{font-size:.68rem;color:var(--g500)}
 .info-contact-value{font-size:.8rem;font-weight:700;color:var(--primary);direction:ltr}
+.share-btn-container { margin-top: 16px; margin-bottom: 8px; }
+
+/* Review items for Dashboard */
+.review-item { background: var(--g50); border: 1px solid var(--g100); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+.review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.review-date { font-size: 0.75rem; color: var(--g500); font-family: var(--font-mono); direction: ltr; }
+.review-comment { font-size: 0.85rem; color: var(--g800); line-height: 1.5; word-break: break-word; }
+
 .auth-section{min-height:calc(100vh - 200px);display:flex;align-items:center;justify-content:center;padding:36px 16px;background:linear-gradient(135deg,var(--g50),var(--secondary))}
 .auth-card{background:var(--white);border-radius:var(--rxl);padding:36px;width:100%;max-width:520px;box-shadow:var(--shl);position:relative;overflow:hidden}
 .auth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold))}
@@ -171,6 +189,13 @@ button{font-family:inherit}
 .disclaimer-checkbox input{width:20px;height:20px;margin-top:2px;flex-shrink:0;accent-color:var(--warning)}
 .disclaimer-text{font-size:.82rem;color:var(--g700)}
 .disclaimer-text strong{color:#92400e}
+
+.days-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; margin-bottom: 12px; }
+.day-chip { cursor: pointer; user-select: none; }
+.day-chip input { display: none; }
+.day-chip span { display: inline-block; padding: 6px 14px; border-radius: 20px; background: var(--g100); color: var(--g600); font-size: 0.85rem; font-weight: 600; transition: var(--tr); border: 2px solid transparent; }
+.day-chip input:checked + span { background: #DCF3E7; color: #0C6E44; border-color: #0C6E44; }
+
 .dashboard-section{padding:36px 20px;max-width:900px;margin:0 auto}
 .dashboard-header{background:var(--white);border-radius:var(--rxl);padding:26px;margin-bottom:22px;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
 .dashboard-header::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold))}
@@ -182,22 +207,17 @@ button{font-family:inherit}
 .stat-value{font-family:var(--font-mono);font-size:1.7rem;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums}
 .stat-label{font-size:.78rem;color:var(--g500)}
 .dashboard-card{background:var(--white);border-radius:var(--rxl);padding:26px;margin-bottom:22px;box-shadow:var(--sh)}
-.dashboard-card h3{font-size:1.15rem;margin-bottom:18px;color:var(--g900);padding-bottom:12px;border-bottom:1px solid var(--g200)}
+.dashboard-card h3{font-size:1.15rem;margin-bottom:12px;color:var(--g900);padding-bottom:12px;border-bottom:1px solid var(--g200)}
 .dashboard-card.danger h3{color:var(--danger);border-bottom-color:#fecaca}
 .verification-status{display:flex;align-items:center;gap:12px;padding:16px;border-radius:var(--r);margin-bottom:18px}
 .verification-status.verified{background:#dcfce7;border:1px solid var(--success)}
 .verification-status.unverified{background:#fef3c7;border:1px solid var(--warning)}
 .verification-status-icon{width:24px;height:24px;flex-shrink:0}
 .verification-status-text{font-size:.88rem;font-weight:600}
-/* CSS for the new Days Grid Selector */
-.days-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px;margin-bottom:10px}
-.day-cb{cursor:pointer;user-select:none}
-.day-cb input{display:none}
-.day-cb span{display:block;text-align:center;padding:10px 4px;background:var(--g50);border:2px solid var(--g200);border-radius:var(--r);font-size:.85rem;font-weight:600;color:var(--g600);transition:var(--tr)}
-.day-cb input:checked + span{background:#DCF3E7;border-color:var(--success);color:#0C6E44;font-weight:700}
 .delete-box{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r);padding:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .delete-box p{font-size:.85rem;color:var(--g700);flex:1;min-width:200px}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:2000;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:2100;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
 .modal-overlay.active{opacity:1;visibility:visible;pointer-events:auto}
 .modal{background:var(--white);border-radius:var(--rxl);padding:26px;width:100%;max-width:460px;max-height:90vh;overflow-y:auto;overscroll-behavior:contain;transform:scale(.9);transition:transform .2s cubic-bezier(.34,1.3,.64,1);position:relative}
 .modal-overlay.active .modal{transform:scale(1)}
@@ -234,6 +254,7 @@ button{font-family:inherit}
 .footer-credit{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.78rem;color:var(--g500)}
 .footer-credit strong{color:var(--g300);font-weight:700;letter-spacing:.02em;font-family:var(--font-mono)}
 .footer-credit-mark{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--primary-light),var(--gold));color:var(--primary-dark);font-family:var(--font-mono);font-weight:700;font-size:.72rem;flex-shrink:0}
+
 @media(max-width:640px){
 .navbar-inner{padding:8px 14px;gap:8px}
 .brand-icon{width:30px;height:30px}
@@ -241,6 +262,7 @@ button{font-family:inherit}
 .brand-sub{display:none}
 .nav-actions{gap:6px}
 .btn-lang{padding:8px 10px;font-size:.78rem}
+
 .hero{padding:16px 16px 20px}
 .hero::before{animation:none}
 .hero-badge{display:none}
@@ -248,6 +270,7 @@ button{font-family:inherit}
 .hero p{display:none}
 .hero-stats{display:none}
 .hero-logo{width:130px;height:130px;opacity:.06}
+
 .search-section{padding:14px 14px 10px}
 .filters-toggle{display:flex!important;align-items:center;justify-content:space-between;width:100%;padding:11px 14px;min-height:44px;background:var(--g50);border:2px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:.88rem;font-weight:700;color:var(--g700);margin-bottom:0}
 .filters-toggle svg{width:16px;height:16px;transition:transform .2s ease}
@@ -259,6 +282,7 @@ button{font-family:inherit}
 .search-bar .btn{width:auto;padding:0 16px}
 .results-info{margin-top:12px;padding-top:10px}
 .press-hint{display:none}
+
 .nurses-section{padding:14px 10px}
 .nurses-grid{grid-template-columns:1fr 1fr;gap:10px}
 .nurse-card{padding:12px;border-radius:14px;cursor:pointer}
@@ -282,10 +306,12 @@ button{font-family:inherit}
 .card-actions .btn .btn-txt{display:none}
 .card-actions .btn-icon{width:15px;height:15px}
 .card-actions .btn-rate{flex:0 0 40px;padding:9px}
+
 .auth-section{padding:20px 12px;min-height:calc(100vh - 160px)}
 .auth-card{padding:22px 16px;border-radius:18px}
 .auth-card input,.auth-card select,.auth-card textarea{font-size:16px}
 .form-row{grid-template-columns:1fr}
+
 .dashboard-section{padding:18px 12px}
 .dashboard-header{flex-direction:column;text-align:center;padding:20px}
 .dashboard-welcome h2{justify-content:center}
@@ -293,6 +319,7 @@ button{font-family:inherit}
 .profileForm input,.profileForm select,#profileForm input,#profileForm select{font-size:16px}
 .delete-box{flex-direction:column;align-items:stretch}
 .delete-box .btn{width:100%}
+
 .info-overlay,.modal-overlay{align-items:flex-end;padding:0}
 .info-card,.modal{max-width:100%;width:100%;border-radius:20px 20px 0 0;padding:14px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:88vh;transform:translateY(100%);transition:transform .28s cubic-bezier(.32,.72,0,1)}
 .info-overlay.active .info-card,.modal-overlay.active .modal{transform:translateY(0)}
@@ -312,7 +339,7 @@ button{font-family:inherit}
 
 <nav class="navbar"><div class="navbar-inner">
   <a href="#" class="brand" onclick="navigate('home');return false;">
-    <svg class="brand-icon" viewBox="0 0 36 36" fill="none"><path d="M18 2 C11 2 6 7 6 13 C6 21 18 34 18 34 C18 34 30 21 30 13 C30 7 25 2 18 2 Z" fill="#f0fdfa" stroke="#0e7490" stroke-width="2"/><path d="M18 8 L18 18 M13 13 L23 13" stroke="#0e7490" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#0e7490"/><path d="M12 6v6m-3-3h6" stroke="#f0fdfa" stroke-width="2.5" stroke-linecap="round"/></svg>
     <div><div class="brand-name" data-i18n="brand_name">ممرض/ة في منطقتك</div><div class="brand-sub" data-i18n="brand_sub">منصة التمريض السورية</div></div>
   </a>
   <div class="nav-actions">
@@ -326,7 +353,10 @@ button{font-family:inherit}
 <main id="mainContent">
 <div id="homeView">
   <section class="hero">
-    <svg class="hero-logo" viewBox="0 0 200 200" fill="none"><path d="M100 10 C60 10 30 40 30 75 C30 120 100 190 100 190 C100 190 170 120 170 75 C170 40 140 10 100 10 Z" fill="white" opacity=".3"/><path d="M100 45 L100 105 M70 75 L130 75" stroke="white" stroke-width="12" stroke-linecap="round"/><path d="M50 150 L70 130 L85 145 L100 120 L115 145 L130 130 L150 150" stroke="white" stroke-width="6" stroke-linecap="round" fill="none"/></svg>
+    <svg class="hero-logo" viewBox="0 0 200 200" fill="none">
+      <path d="M100 20 V180 M20 100 H180" stroke="white" stroke-width="12" stroke-linecap="round" opacity="0.3"/>
+      <path d="M0 130 H40 L50 80 L70 170 L90 60 L110 140 L120 110 L140 130 H200" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+    </svg>
     <div class="hero-content">
       <div class="hero-badge"><span data-i18n="hero_badge">منصة التمريض السورية</span></div>
       <h1 data-i18n="hero_title">ابحث عن ممرض/ممرضة بالقرب من منطقتك</h1>
@@ -355,10 +385,15 @@ button{font-family:inherit}
       <button class="btn btn-primary" onclick="handleFilterChange()" data-i18n="search">بحث</button>
     </div>
     <div class="results-info">
-      <span class="results-count"><span data-i18n="showing">عرض</span> <strong id="resultsCount">0</strong> <span data-i18n="nurses_found">نتيجة</span></span>
-      <button class="btn btn-ghost btn-sm" onclick="resetFilters()" data-i18n="reset_filters">إعادة تعيين</button>
+      <span class="results-count">
+        <span data-i18n="showing">عرض</span> <strong id="resultsCount">0</strong> <span data-i18n="nurses_found">نتيجة</span>
+      </span>
+      <div style="display:flex; gap:10px; align-items: center; flex-wrap:wrap;">
+        <button class="btn btn-ghost btn-sm" id="favFilterBtn" onclick="toggleFavFilter()" data-i18n="favorites_only">المفضلة</button>
+        <button class="btn btn-ghost btn-sm" onclick="resetFilters()" data-i18n="reset_filters">إعادة تعيين</button>
+      </div>
     </div>
-    <div class="press-hint">
+    <div class="press-hint" id="pressHintText">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg>
       <span data-i18n="press_hint">اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته</span>
     </div>
@@ -366,9 +401,15 @@ button{font-family:inherit}
 
   <section class="nurses-section">
     <div id="nursesGrid" class="nurses-grid"></div>
+
     <div id="loadingSpinner" class="loading-spinner hidden"><div class="spinner"></div></div>
+    
     <div id="emptyState" class="empty-state hidden">
-      <svg class="empty-state-icon" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="3"/><path d="M40 20 L40 30 M35 25 L45 25" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+      <svg class="empty-state-icon" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="35" r="20" stroke="currentColor" stroke-width="4"/>
+        <path d="M40 55 v15 M30 70 h20" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="60" cy="35" r="4" fill="currentColor"/>
+      </svg>
       <h3 data-i18n="no_results">لا توجد نتائج</h3>
       <p data-i18n="try_different_filters">حاول تعديل معايير البحث أو الفلاتر</p>
     </div>
@@ -454,22 +495,6 @@ button{font-family:inherit}
       <div class="stat-card"><svg class="stat-icon" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 14 L26 14 M14 20 L26 20" stroke="currentColor" stroke-width="2"/></svg><div class="stat-value" id="dashReviews">0</div><div class="stat-label" data-i18n="total_reviews">إجمالي التقييمات</div></div>
       <div class="stat-card"><svg class="stat-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><path d="M20 12 L20 20 L26 24" stroke="currentColor" stroke-width="2"/></svg><div class="stat-value" id="dashExperience">0</div><div class="stat-label" data-i18n="years_exp">سنوات الخبرة</div></div>
     </div>
-    
-    <div class="dashboard-card">
-      <h3 data-i18n="availability">التوفر</h3>
-      <p style="color:var(--g500); font-size:0.85rem; margin-bottom:14px;" data-i18n="availability_hint">اختر الأيام التي تكون فيها متاحاً للعمل. ستصبح متاحاً وتظهر حسابك للمستخدمين في هذه الأيام فقط.</p>
-      <div class="days-grid">
-        <label class="day-cb"><input type="checkbox" value="6" name="availDay"><span data-i18n="sat">السبت</span></label>
-        <label class="day-cb"><input type="checkbox" value="0" name="availDay"><span data-i18n="sun">الأحد</span></label>
-        <label class="day-cb"><input type="checkbox" value="1" name="availDay"><span data-i18n="mon">الإثنين</span></label>
-        <label class="day-cb"><input type="checkbox" value="2" name="availDay"><span data-i18n="tue">الثلاثاء</span></label>
-        <label class="day-cb"><input type="checkbox" value="3" name="availDay"><span data-i18n="wed">الأربعاء</span></label>
-        <label class="day-cb"><input type="checkbox" value="4" name="availDay"><span data-i18n="thu">الخميس</span></label>
-        <label class="day-cb"><input type="checkbox" value="5" name="availDay"><span data-i18n="fri">الجمعة</span></label>
-      </div>
-      <button class="btn btn-primary" style="margin-top:10px; width:100%" onclick="saveAvailabilityDays()" data-i18n="save_changes">حفظ التغييرات</button>
-    </div>
-
     <div class="dashboard-card">
       <h3 data-i18n="verification_status">حالة التوثيق</h3>
       <div id="verificationStatusBox" class="verification-status unverified">
@@ -493,6 +518,29 @@ button{font-family:inherit}
       <button class="btn btn-primary" onclick="saveVerification()" data-i18n="save_verification">حفظ التوثيق</button>
     </div>
     
+    <div class="dashboard-card">
+      <h3 data-i18n="availability">أيام العمل والتفرغ</h3>
+      <p style="font-size:0.85rem; color:var(--g600); margin-bottom:12px" data-i18n="availability_days_desc">اختر الأيام التي تكون فيها متفرغاً لاستقبال طلبات العمل. ستظهر للمستخدمين فقط في هذه الأيام.</p>
+      <div id="availabilityDays" class="days-selector">
+        <label class="day-chip"><input type="checkbox" value="0"><span data-i18n="sun">الأحد</span></label>
+        <label class="day-chip"><input type="checkbox" value="1"><span data-i18n="mon">الإثنين</span></label>
+        <label class="day-chip"><input type="checkbox" value="2"><span data-i18n="tue">الثلاثاء</span></label>
+        <label class="day-chip"><input type="checkbox" value="3"><span data-i18n="wed">الأربعاء</span></label>
+        <label class="day-chip"><input type="checkbox" value="4"><span data-i18n="thu">الخميس</span></label>
+        <label class="day-chip"><input type="checkbox" value="5"><span data-i18n="fri">الجمعة</span></label>
+        <label class="day-chip"><input type="checkbox" value="6"><span data-i18n="sat">السبت</span></label>
+      </div>
+      <button id="saveDaysBtn" class="btn btn-outline btn-sm" style="margin-top:16px" onclick="saveAvailabilityDays()" data-i18n="save_changes">حفظ التعديلات</button>
+    </div>
+
+    <!-- عرض التعليقات داخل لوحة التحكم فقط -->
+    <div class="dashboard-card">
+      <h3 data-i18n="reviews_title">تعليقات المستخدمين</h3>
+      <div id="dashReviewsContainer">
+        <div class="loading-spinner"><div class="spinner"></div></div>
+      </div>
+    </div>
+
     <div class="dashboard-card">
       <h3 data-i18n="profile_information">معلومات الملف الشخصي</h3>
       <form class="auth-form" id="profileForm" onsubmit="handleProfileUpdate(event)">
@@ -529,13 +577,17 @@ button{font-family:inherit}
 
 <footer class="footer"><div class="footer-content">
   <div class="footer-logo">
-    <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 C15 4 8 11 8 19 C8 30 24 44 24 44 C24 44 40 30 40 19 C40 11 33 4 24 4 Z" fill="#0B6E64"/><path d="M24 12 L24 26 M17 19 L31 19" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 48 48" fill="none"><path d="M24 4C16.27 4 10 10.27 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14z" fill="#0B6E64"/><path d="M24 12v12m-6-6h12" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>
     <div><div class="footer-brand-name" data-i18n="brand_name">ممرض/ة في منطقتك</div><div class="footer-brand-sub" data-i18n="brand_sub">منصة التمريض السورية</div></div>
   </div>
   <div class="footer-divider"></div>
   <div class="footer-bottom">
     <span data-i18n="footer_rights">© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.</span>
-    <div class="footer-links"><a href="#" data-i18n="footer_privacy">سياسة الخصوصية</a><a href="#" data-i18n="footer_terms">شروط الاستخدام</a><a href="#" data-i18n="footer_contact">اتصل بنا</a></div>
+    <div class="footer-links">
+      <a href="#" data-i18n="footer_privacy">سياسة الخصوصية</a>
+      <a href="#" data-i18n="footer_terms">شروط الاستخدام</a>
+      <a href="#" onclick="openContactModal(event); return false;" data-i18n="footer_contact">اتصل بنا</a>
+    </div>
   </div>
   <div class="footer-credit">
     <span class="footer-credit-mark">H</span>
@@ -544,6 +596,18 @@ button{font-family:inherit}
 </div></footer>
 
 <div class="info-overlay" id="infoOverlay"><div class="info-card" id="infoCard"></div></div>
+
+<!-- Contact Us Modal -->
+<div class="modal-overlay" id="contactModal"><div class="modal">
+  <div class="sheet-handle"></div>
+  <button class="modal-close" onclick="closeContactModal()"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3 L13 13 M13 3 L3 13" stroke="currentColor" stroke-width="2"/></svg></button>
+  <h3 data-i18n="footer_contact">اتصل بنا</h3>
+  <p style="text-align:center; direction:ltr; font-family:var(--font-mono); font-size:1.4rem; font-weight:bold; color:var(--g900); margin-bottom: 24px;">+963994805892</p>
+  <div style="display:flex; gap:12px; flex-wrap: wrap;">
+    <a href="https://wa.me/963994805892" target="_blank" class="btn btn-whatsapp" style="flex:1; padding: 14px;"><svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.3C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.9.1.1.1.3 0 .4-.1.2-.1.3-.3.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg><span data-i18n="whatsapp_action">واتساب</span></a>
+    <a href="tel:+963994805892" class="btn btn-call" style="flex:1; padding: 14px;"><svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span data-i18n="call_action">اتصال</span></a>
+  </div>
+</div></div>
 
 <div class="modal-overlay" id="rateModal"><div class="modal">
   <div class="sheet-handle"></div>
@@ -576,7 +640,7 @@ button{font-family:inherit}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, deleteUser } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs, deleteDoc, query, orderBy, limit, startAfter, runTransaction, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs, deleteDoc, query, where, orderBy, limit, startAfter, runTransaction, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-N8QblDRG_DtqMYT-djVRveElBeby6YU",
@@ -595,28 +659,29 @@ try { getAnalytics(app); } catch(e) {}
 
 window.firebaseAuth = auth;
 window.firebaseDb = db;
-window.F = { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, deleteUser, collection, doc, addDoc, setDoc, getDoc, getDocs, deleteDoc, query, orderBy, limit, startAfter, runTransaction, serverTimestamp, updateDoc };
+window.F = { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, deleteUser, collection, doc, addDoc, setDoc, getDoc, getDocs, deleteDoc, query, where, orderBy, limit, startAfter, runTransaction, serverTimestamp, updateDoc };
 
-window.GOVERNORATES = ["دمشق","ريف دمشق","حلب","حمص","حماة","اللاذقية","طرطوس","إدلب","درعا","السويداء","القنيطرة","دير الزور","الرقة","الحسكة"];
+window.GOVERNORATES = ["دمشق", "ريف دمشق", "حلب", "حمص", "حماة", "اللاذقية", "طرطوس", "إدلب", "درعا", "السويداء", "القنيطرة", "دير الزور", "الرقة", "الحسكة"];
 window.appInitialized = true;
 document.dispatchEvent(new Event('firebaseReady'));
 </script>
 
 <script>
 const T = {
-  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",all_areas:"جميع المحافظات",gender:"النوع",all:"الكل",male:"ممرض",female:"ممرضة",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"التوفر",availability_hint:"اختر الأيام التي تكون فيها متاحاً للعمل. ستصبح متاحاً وتظهر حسابك للمستخدمين في هذه الأيام فقط.",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث حالة التوفر!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حسابك موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_gender:"النوع",info_exp:"الخبرة",info_gov:"المحافظة",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",avail_days_label:"أيام التوفر",everyday:"كل الأيام",none:"غير متاح",sun:"الأحد",mon:"الإثنين",tue:"الثلاثاء",wed:"الأربعاء",thu:"الخميس",fri:"الجمعة",sat:"السبت",gender_locked_note:"لا يمكن تغيير هذا الحقل بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير"},
-  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",all_areas:"All Governorates",gender:"Gender",all:"All",male:"Male Nurse",female:"Female Nurse",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability",availability_hint:"Select the days you are available. You will automatically appear online to users on these days only.",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability updated!",rating_submitted:"Thank you! Rating submitted.",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_gender:"Gender",info_exp:"Experience",info_gov:"Governorate",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",avail_days_label:"Available Days",everyday:"Every day",none:"None",sun:"Sun",mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",gender_locked_note:"This field cannot be changed after account creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by"}
+  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",all_areas:"جميع المحافظات",gender:"النوع",all:"الكل",male:"ممرض",female:"ممرضة",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",favorites_only:"المفضلة",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"أيام العمل والتفرغ",availability_days_desc:"اختر الأيام التي تكون فيها متفرغاً لاستقبال طلبات العمل. ستظهر للمستخدمين فقط في هذه الأيام.",sun:"الأحد",mon:"الإثنين",tue:"الثلاثاء",wed:"الأربعاء",thu:"الخميس",fri:"الجمعة",sat:"السبت",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",share_whatsapp:"مشاركة عبر واتساب",reviews_title:"تعليقات المستخدمين",no_reviews_yet:"لا توجد تعليقات نصية بعد.",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث أيام العمل بنجاح!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",sending:"جاري الإرسال...",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حساب موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_gender:"النوع",info_exp:"الخبرة",info_gov:"المحافظة",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",gender_locked_note:"لا يمكن تغيير هذا الحقل بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير"},
+  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",all_areas:"All Governorates",gender:"Gender",all:"All",male:"Male Nurse",female:"Female Nurse",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",favorites_only:"Favorites",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability Days",availability_days_desc:"Choose the days you are available to work. You will only appear to users on these days.",sun:"Sun",mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",share_whatsapp:"Share via WhatsApp",reviews_title:"User Reviews",no_reviews_yet:"No text reviews yet.",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability days updated!",rating_submitted:"Thank you! Rating submitted.",sending:"Sending...",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_gender:"Gender",info_exp:"Experience",info_gov:"Governorate",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",gender_locked_note:"This field cannot be changed after account creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by"}
 };
 
 const S = {
   lang: localStorage.getItem('lang') || 'ar',
   view: 'home', user: null, profile: null,
   nurses: [], lastDoc: null, loading: false, hasMore: true,
-  filters: { governorate:'', gender:'', experience:'', sort:'rating', search:'' },
+  filters: { governorate:'', gender:'', experience:'', sort:'rating', search:'', favOnly: false },
   pending: { graduation:null, practice:null },
   regFiles: { graduation:null, practice:null }
 };
-const PAGE = 40; // Increased to offset filtered out unavailable nurses
+const PAGE = 20;
+let favNurses = JSON.parse(localStorage.getItem('favNurses') || '[]');
 
 document.addEventListener('firebaseReady', init);
 document.addEventListener('DOMContentLoaded', () => { if (window.appInitialized) init(); });
@@ -634,11 +699,35 @@ function init(){
   enableSwipeToClose(document.getElementById('infoCard'), closeInfo);
   enableSwipeToClose(document.querySelector('#rateModal .modal'), closeRateModal);
   enableSwipeToClose(document.querySelector('#deleteModal .modal'), closeDeleteModal);
+  enableSwipeToClose(document.querySelector('#contactModal .modal'), closeContactModal);
   window.F.onAuthStateChanged(window.firebaseAuth, async u => {
     S.user = u; updateAuthUI(u);
     if (u) { await loadProfile(u.uid); if (S.view === 'auth') navigate('dashboard'); }
   });
   loadInitial();
+}
+
+function toggleFavorite(id, e) {
+  if (e) e.stopPropagation();
+  const idx = favNurses.indexOf(id);
+  if (idx > -1) favNurses.splice(idx, 1);
+  else favNurses.push(id);
+  localStorage.setItem('favNurses', JSON.stringify(favNurses));
+  render();
+}
+function isFav(id) { return favNurses.includes(id); }
+
+function toggleFavFilter() {
+  S.filters.favOnly = !S.filters.favOnly;
+  const btn = document.getElementById('favFilterBtn');
+  if (S.filters.favOnly) {
+    btn.classList.remove('btn-ghost');
+    btn.classList.add('btn-primary');
+  } else {
+    btn.classList.add('btn-ghost');
+    btn.classList.remove('btn-primary');
+  }
+  render();
 }
 
 function buildRatingStars(){
@@ -706,24 +795,15 @@ function bindPress(){
 function fillInfo(n){
   const d = T[S.lang];
   const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
+  const shareText = encodeURIComponent(`الممرض/ة: ${n.fullName}\nالتقييم: ${(n.ratingAvg||0).toFixed(1)} نجوم\nالمكان: ${n.governorate} - ${n.cityArea}\nللتواصل: ${n.phoneNumber}\nشاهد المزيد عبر منصة ممرض/ة في منطقتك`);
   
-  // Format the available days for the info card
-  const dayKeys = ['sun','mon','tue','wed','thu','fri','sat'];
-  const daysList = n.availableDays ? 
-    (n.availableDays.length === 7 ? d.everyday : 
-     n.availableDays.length === 0 ? d.none : 
-     n.availableDays.map(dayNum => d[dayKeys[dayNum]]).join('، ')) 
-    : d.everyday;
-
-  // Since we only display online nurses via applyFilters, this will always be true when viewed here
-  const today = new Date().getDay();
-  const isOnlineNow = n.availableDays ? n.availableDays.includes(today) : (n.isAvailable !== false);
-
   document.getElementById('infoCard').innerHTML =
     '<div class="sheet-handle"></div>'+
     '<button class="info-close" onclick="closeInfo()"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3 L13 13 M13 3 L3 13" stroke="currentColor" stroke-width="2"/></svg></button>'+
-    '<div class="info-head"><div class="info-name">'+esc(n.fullName||'')+'</div>'+badge+'</div>'+
-    '<div class="info-sub">'+esc(n.university||'')+' • <span class="availability-badge '+(isOnlineNow?'available':'unavailable')+'" style="padding:2px 8px"><span class="availability-dot"></span>'+(isOnlineNow?d.available:d.unavailable)+'</span></div>'+
+    '<div class="info-head"><div class="info-name">'+esc(n.fullName||'')+'</div>'+badge+
+    '<button class="btn-fav '+(isFav(n.id)?'active':'')+'" style="margin:0 6px" onclick="toggleFavorite(\''+n.id+'\', event)"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>'+
+    '</div>'+
+    '<div class="info-sub">'+esc(n.university||'')+' • <span class="availability-badge available" style="padding:2px 8px"><span class="availability-dot"></span>'+d.available+'</span></div>'+
     '<div class="info-grid">'+
     '<div class="info-item"><div class="info-label">'+d.info_age+'</div><div class="info-value">'+(n.age||'-')+'</div></div>'+
     '<div class="info-item"><div class="info-label">'+d.info_gender+'</div><div class="info-value">'+(n.gender==='male'?d.male:d.female)+'</div></div>'+
@@ -732,20 +812,72 @@ function fillInfo(n){
     '<div class="info-item"><div class="info-label">'+d.info_gov+'</div><div class="info-value">'+esc(n.governorate||'')+'</div></div>'+
     '<div class="info-item"><div class="info-label">'+d.info_area+'</div><div class="info-value">'+esc(n.cityArea||'')+'</div></div>'+
     '<div class="info-item full"><div class="info-label">'+d.info_uni+'</div><div class="info-value">'+esc(n.university||'')+'</div></div>'+
-    '<div class="info-item full"><div class="info-label" style="color:var(--primary)">'+d.avail_days_label+'</div><div class="info-value" style="color:var(--primary-dark)">'+daysList+'</div></div>'+
     '</div>'+
     '<div class="info-contacts">'+
     '<div class="info-contact"><div class="info-contact-label">'+d.info_phone+'</div><div class="info-contact-value">'+esc(n.phoneNumber||'-')+'</div></div>'+
     '<div class="info-contact"><div class="info-contact-label">'+d.info_whatsapp+'</div><div class="info-contact-value">'+esc(n.whatsappNumber||'-')+'</div></div>'+
-    '</div>';
+    '</div>'+
+    '<div class="share-btn-container"><a href="https://wa.me/?text='+shareText+'" target="_blank" class="btn btn-outline" style="width:100%"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>'+d.share_whatsapp+'</a></div>';
 }
 
 function closeInfo(){ document.getElementById('infoOverlay').classList.remove('active'); unlockScroll(); }
+
+async function loadNurseReviews(nurseId) {
+  const d = T[S.lang];
+  const container = document.getElementById('dashReviewsContainer');
+  if(!container) return;
+  try {
+    const { collection, query, where, getDocs } = window.F;
+    const q = query(collection(window.firebaseDb, 'reviews'), where('nurseId', '==', nurseId));
+    const snap = await getDocs(q);
+    
+    let revs = [];
+    snap.forEach(doc => revs.push(doc.data()));
+    
+    revs.sort((a,b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0));
+    const textRevs = revs.filter(r => r.comment && r.comment.trim() !== '');
+
+    const uniqueRevs = [];
+    const seen = new Set();
+    textRevs.forEach(r => {
+      const key = `${r.rating}-${r.comment.trim().toLowerCase()}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        uniqueRevs.push(r);
+      }
+    });
+
+    container.innerHTML = '';
+    
+    if(uniqueRevs.length === 0) {
+      container.innerHTML = `<p style="font-size:0.85rem; color:var(--g500); text-align:center; margin:10px 0;">${d.no_reviews_yet}</p>`;
+    } else {
+      let htmlStr = '';
+      uniqueRevs.forEach(r => {
+        const dateStr = r.createdAt ? new Date(r.createdAt.toMillis()).toLocaleDateString(S.lang === 'ar' ? 'ar-EG' : 'en-US') : '';
+        htmlStr += `
+          <div class="review-item">
+            <div class="review-header">
+              <div class="stars" style="gap:1px">${stars(r.rating)}</div>
+              <span class="review-date">${dateStr}</span>
+            </div>
+            <div class="review-comment">${esc(r.comment)}</div>
+          </div>`;
+      });
+      container.innerHTML = htmlStr;
+    }
+  } catch(e) {
+    console.error(e);
+    container.innerHTML = `<p style="font-size:0.8rem; color:var(--danger); text-align:center">${d.error_occurred}</p>`;
+  }
+}
+
 function lockScroll(){ document.body.classList.add('sheet-open'); }
 function unlockScroll(){
   if (!document.getElementById('infoOverlay').classList.contains('active') &&
       !document.getElementById('rateModal').classList.contains('active') &&
-      !document.getElementById('deleteModal').classList.contains('active')) {
+      !document.getElementById('deleteModal').classList.contains('active') &&
+      !document.getElementById('contactModal').classList.contains('active')) {
     document.body.classList.remove('sheet-open');
   }
 }
@@ -897,8 +1029,7 @@ async function handleRegister(e){
       yearsOfExperience: parseInt(document.getElementById('regExperience').value),
       whatsappNumber: document.getElementById('regWhatsapp').value,
       phoneNumber: document.getElementById('regPhone').value,
-      availableDays: [0,1,2,3,4,5,6], // All days by default
-      isAvailable: true, ratingAvg: 0, reviewsCount: 0, isVerified: false,
+      isAvailable: true, availableDays: [0,1,2,3,4,5,6], ratingAvg: 0, reviewsCount: 0, isVerified: false,
       disclaimerAccepted: true, disclaimerAcceptedAt: window.F.serverTimestamp(),
       createdAt: window.F.serverTimestamp()
     });
@@ -917,6 +1048,17 @@ async function handleRegister(e){
 async function handleLogout(){
   try { await window.F.signOut(window.firebaseAuth); navigate('home'); toast(T[S.lang].logged_out, 'success'); }
   catch(err) { toast(err.message, 'error'); }
+}
+
+function openContactModal(e) {
+  if (e) e.preventDefault();
+  document.getElementById('contactModal').classList.add('active');
+  lockScroll();
+}
+
+function closeContactModal() {
+  document.getElementById('contactModal').classList.remove('active');
+  unlockScroll();
 }
 
 function openDeleteModal(){
@@ -969,14 +1111,13 @@ function updateDashboard(){
   document.getElementById('dashRating').textContent = (p.ratingAvg || 0).toFixed(1);
   document.getElementById('dashReviews').textContent = p.reviewsCount || 0;
   document.getElementById('dashExperience').textContent = p.yearsOfExperience || 0;
+  document.getElementById('dashVerifiedBadge').classList.toggle('hidden', !p.isVerified);
   
-  // Set the checkbox values according to DB state
-  const days = p.availableDays || [0,1,2,3,4,5,6]; // Default backward compatibility
-  document.querySelectorAll('input[name="availDay"]').forEach(cb => {
+  const days = p.availableDays || [];
+  document.querySelectorAll('#availabilityDays input').forEach(cb => {
     cb.checked = days.includes(parseInt(cb.value));
   });
 
-  document.getElementById('dashVerifiedBadge').classList.toggle('hidden', !p.isVerified);
   const box = document.getElementById('verificationStatusBox');
   box.className = 'verification-status ' + (p.isVerified ? 'verified' : 'unverified');
   document.getElementById('verificationStatusText').textContent = p.isVerified ? d.verified : d.not_verified;
@@ -989,17 +1130,11 @@ function updateDashboard(){
   document.getElementById('profileGender').value = p.gender || 'male';
   document.getElementById('profilePhone').value = p.phoneNumber || '';
   document.getElementById('profileWhatsapp').value = p.whatsappNumber || '';
-}
 
-async function saveAvailabilityDays() {
-  if (!S.user) return;
-  // Get currently checked days from UI
-  const checkedDays = Array.from(document.querySelectorAll('input[name="availDay"]:checked')).map(cb => parseInt(cb.value));
-  try {
-    await window.F.updateDoc(window.F.doc(window.firebaseDb, 'nurses', S.user.uid), { availableDays: checkedDays });
-    if(S.profile) S.profile.availableDays = checkedDays;
-    toast(T[S.lang].availability_updated, 'success');
-  } catch(err) { toast(err.message, 'error'); }
+  // Load reviews specific to the logged-in nurse
+  if (S.user) {
+    loadNurseReviews(S.user.uid);
+  }
 }
 
 async function saveVerification(){
@@ -1034,6 +1169,32 @@ async function handleProfileUpdate(e){
   } catch(err) { toast(err.message, 'error'); }
 }
 
+async function saveAvailabilityDays(){
+  if (!S.user) return;
+  const btn = document.getElementById('saveDaysBtn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = '...';
+  const days = Array.from(document.querySelectorAll('#availabilityDays input:checked')).map(cb => parseInt(cb.value));
+  try {
+    await window.F.updateDoc(window.F.doc(window.firebaseDb, 'nurses', S.user.uid), { availableDays: days });
+    S.profile.availableDays = days;
+    toast(T[S.lang].availability_updated, 'success');
+  } catch(err) { 
+    toast(err.message, 'error'); 
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+function checkAvailability(n) {
+  if (n.availableDays && Array.isArray(n.availableDays)) {
+    return n.availableDays.includes(new Date().getDay());
+  }
+  return n.isAvailable !== false;
+}
+
 async function loadInitial(){
   S.nurses = []; S.lastDoc = null; S.hasMore = true;
   document.getElementById('nursesGrid').innerHTML = '';
@@ -1064,15 +1225,9 @@ async function loadMore(){
 
 function applyFilters(list){
   const f = S.filters;
-  const today = new Date().getDay(); // 0 (Sun) to 6 (Sat)
-  
-  // Filter out offline nurses entirely based on today's schedule
-  let out = list.filter(n => {
-    // If availableDays exists, check today. Else fallback to old isAvailable check for backward compatibility.
-    const isOnlineToday = n.availableDays ? n.availableDays.includes(today) : (n.isAvailable !== false);
-    return isOnlineToday;
-  });
-
+  let out = list;
+  out = out.filter(n => checkAvailability(n));
+  if (f.favOnly) out = out.filter(n => isFav(n.id));
   if (f.governorate) out = out.filter(n => (n.governorate || '') === f.governorate);
   if (f.gender) out = out.filter(n => (n.gender || '') === f.gender);
   if (f.experience === 'junior') out = out.filter(n => (n.yearsOfExperience || 0) < 2);
@@ -1090,7 +1245,11 @@ function render(){
   const empty = document.getElementById('emptyState');
   const more = document.getElementById('loadMoreContainer');
   const disp = applyFilters(S.nurses);
+  
   document.getElementById('resultsCount').textContent = disp.length;
+  grid.style.display = 'grid';
+  document.getElementById('pressHintText').style.display = 'flex';
+  
   if (disp.length) { grid.innerHTML = disp.map(card).join(''); empty.classList.add('hidden'); }
   else { grid.innerHTML = ''; empty.classList.toggle('hidden', S.hasMore); }
   more.classList.toggle('hidden', !S.hasMore);
@@ -1101,16 +1260,16 @@ function card(n){
   const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
   const initial = (n.fullName||'?').trim().charAt(0);
   
-  // Since we filtered out offline nurses, everyone here is automatically "Available". 
-  // We keep the dynamic check visually identical.
-  return '<div class="nurse-card" data-card-id="'+n.id+'"><div class="card-header"><div class="card-avatar">'+esc(initial)+'</div><div class="card-header-text"><div class="card-name-wrapper"><span class="press-target" data-id="'+n.id+'"><span class="card-name">'+esc(n.fullName||'')+'</span></span>'+badge+'<button class="info-btn" data-info="'+n.id+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg></button></div><div class="card-uni">'+esc(n.university||'')+'</div></div><span class="availability-badge available"><span class="availability-dot"></span>'+d.available+'</span></div>'+
+  return '<div class="nurse-card" data-card-id="'+n.id+'"><div class="card-header"><div class="card-avatar">'+esc(initial)+'</div><div class="card-header-text"><div class="card-name-wrapper"><span class="press-target" data-id="'+n.id+'"><span class="card-name">'+esc(n.fullName||'')+'</span></span>'+badge+
+  '<button class="btn-fav '+(isFav(n.id)?'active':'')+'" onclick="toggleFavorite(\''+n.id+'\', event)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>'+
+  '<button class="info-btn" data-info="'+n.id+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg></button></div><div class="card-uni">'+esc(n.university||'')+'</div></div><span class="availability-badge available"><span class="availability-dot"></span>'+d.available+'</span></div>'+
   '<div class="card-details">'+
-  '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6 L12 12 L16 14" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.experience+'</div><div class="card-detail-value">'+(n.yearsOfExperience||0)+' '+d.yrs+'</div></div></div>'+
-  '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2 C8 2 5 5 5 9 C5 14 12 22 12 22 C12 22 19 14 19 9 C19 5 16 2 12 2 Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.governorate+'</div><div class="card-detail-value">'+esc(n.governorate||'')+'</div></div></div>'+
-  '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><path d="M4 20 L4 8 L12 4 L20 8 L20 20 Z" stroke="currentColor" stroke-width="2"/><rect x="9" y="14" width="6" height="6" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.city_area+'</div><div class="card-detail-value">'+esc(n.cityArea||'')+'</div></div></div>'+
+  '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6m-3-3h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><div class="card-detail-label">'+d.experience+'</div><div class="card-detail-value">'+(n.yearsOfExperience||0)+' '+d.yrs+'</div></div></div>'+
+  '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" fill="currentColor"/></svg><div><div class="card-detail-label">'+d.governorate+'</div><div class="card-detail-value">'+esc(n.governorate||'')+'</div></div></div>'+
+  '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.city_area+'</div><div class="card-detail-value">'+esc(n.cityArea||'')+'</div></div></div>'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M6 21 C6 17 8.7 14 12 14 C15.3 14 18 17 18 21" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.gender+'</div><div class="card-detail-value">'+(n.gender==='male'?d.male:d.female)+'</div></div></div>'+
   '</div><div class="card-rating"><div class="stars">'+stars(r)+'</div><span class="rating-text"><strong>'+r.toFixed(1)+'</strong> ('+rv+' '+(rv===1?d.review:d.reviews_count)+')</span></div>'+
-  '<div class="card-actions"><a href="https://wa.me/'+(n.whatsappNumber||'')+'" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.3C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.9.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg><span class="btn-txt">'+d.whatsapp_action+'</span></a><a href="tel:'+(n.phoneNumber||'')+'" class="btn btn-call btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span class="btn-txt">'+d.call_action+'</span></a><button class="btn btn-rate btn-sm" onclick="openRateModal(\''+n.id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 19 L6 22 L7 15 L2 10 L9 9 Z"/></svg></button></div></div>';
+  '<div class="card-actions"><a href="https://wa.me/'+(n.whatsappNumber||'')+'" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.3C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.9.1.1.1.3 0 .4-.1.2-.1.3-.3.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg><span class="btn-txt">'+d.whatsapp_action+'</span></a><a href="tel:'+(n.phoneNumber||'')+'" class="btn btn-call btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span class="btn-txt">'+d.call_action+'</span></a><button class="btn btn-rate btn-sm" onclick="openRateModal(\''+n.id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 19 L6 22 L7 15 L2 10 L9 9 Z"/></svg></button></div></div>';
 }
 
 function stars(r){
@@ -1139,7 +1298,9 @@ function resetFilters(){
   ['filterGovernorate','filterGender','filterExperience'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('filterSort').value = 'rating';
   document.getElementById('searchInput').value = '';
-  S.filters = { governorate:'', gender:'', experience:'', sort:'rating', search:'' };
+  document.getElementById('favFilterBtn').classList.remove('btn-primary');
+  document.getElementById('favFilterBtn').classList.add('btn-ghost');
+  S.filters = { governorate:'', gender:'', experience:'', sort:'rating', search:'', favOnly: false };
   loadInitial();
 }
 
@@ -1160,9 +1321,15 @@ function setRating(v){
 async function submitRating(e){
   e.preventDefault();
   const d = T[S.lang];
+  const btn = e.target.querySelector('button[type="submit"]');
   const id = document.getElementById('ratingNurseId').value;
   const r = parseInt(document.getElementById('ratingValue').value);
   if (!r) { toast(d.select_rating, 'error'); return; }
+  
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = d.sending;
+
   try {
     await window.F.addDoc(window.F.collection(window.firebaseDb, 'reviews'), {
       nurseId: id, rating: r, comment: document.getElementById('ratingComment').value.trim(), createdAt: window.F.serverTimestamp()
@@ -1177,7 +1344,13 @@ async function submitRating(e){
     closeRateModal();
     toast(d.rating_submitted, 'success');
     loadInitial();
-  } catch(err) { console.error(err); toast(d.error_occurred, 'error'); }
+  } catch(err) { 
+    console.error(err); 
+    toast(d.error_occurred, 'error'); 
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
 }
 
 function showLoad(v){ document.getElementById('loadingSpinner').classList.toggle('hidden', !v); }
@@ -1218,11 +1391,16 @@ window.checkDeleteInput = checkDeleteInput;
 window.confirmDeleteAccount = confirmDeleteAccount;
 window.closeInfo = closeInfo;
 window.toggleFiltersPanel = toggleFiltersPanel;
+window.toggleFavFilter = toggleFavFilter;
+window.toggleFavorite = toggleFavorite;
+window.openContactModal = openContactModal;
+window.closeContactModal = closeContactModal;
 
 document.getElementById('rateModal').addEventListener('click', e => { if (e.target.id === 'rateModal') closeRateModal(); });
 document.getElementById('deleteModal').addEventListener('click', e => { if (e.target.id === 'deleteModal') closeDeleteModal(); });
+document.getElementById('contactModal').addEventListener('click', e => { if (e.target.id === 'contactModal') closeContactModal(); });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeRateModal(); closeDeleteModal(); closeInfo(); }
+  if (e.key === 'Escape') { closeRateModal(); closeDeleteModal(); closeInfo(); closeContactModal(); }
 });
 </script>
 </body>
