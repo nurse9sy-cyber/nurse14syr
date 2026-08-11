@@ -1,17 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="description" content="ممرض/ة في منطقتك - منصة التمريض السورية">
-<meta name="theme-color" content="#0e7490">
+<meta name="theme-color" content="#0B6E64">
 <title>ممرض/ة في منطقتك | Nurse in Your Area</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2 C12 2 6 8 6 15 C6 24 20 38 20 38 C20 38 34 24 34 15 C34 8 28 2 20 2 Z' fill='%230e7490'/%3E%3Cpath d='M20 9 L20 21 M14 15 L26 15' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2 C12 2 6 8 6 15 C6 24 20 38 20 38 C20 38 34 24 34 15 C34 8 28 2 20 2 Z' fill='%230B6E64'/%3E%3Cpath d='M20 9 L20 21 M14 15 L26 15' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
-:root{--primary:#0e7490;--primary-light:#22d3ee;--primary-dark:#155e75;--secondary:#f0fdfa;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--verified:#3b82f6;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g500:#64748b;--g600:#475569;--g700:#334155;--g800:#1e293b;--g900:#0f172a;--white:#fff;--sh:0 4px 6px -1px rgba(0,0,0,.1);--shl:0 20px 25px -5px rgba(0,0,0,.1);--r:10px;--rl:16px;--rxl:24px;--tr:all .3s cubic-bezier(.4,0,.2,1)}
+:root{--primary:#0B6E64;--primary-light:#4FD1B8;--primary-dark:#073F3A;--secondary:#EAF7F3;--success:#0FA968;--warning:#f59e0b;--danger:#E15850;--verified:#1C7FA0;--coral:#E8604F;--coral-dark:#C94B3C;--gold:#E3A430;--g50:#F3F8F7;--g100:#E7F1EF;--g200:#D3E3E0;--g300:#B3C9C5;--g500:#6C8683;--g600:#4E6663;--g700:#37504D;--g800:#223836;--g900:#122422;--white:#fff;--sh:0 4px 6px -1px rgba(11,110,100,.08),0 2px 4px -2px rgba(11,110,100,.06);--shl:0 20px 25px -5px rgba(11,110,100,.14),0 8px 10px -6px rgba(11,110,100,.08);--r:12px;--rl:18px;--rxl:26px;--tr:all .3s cubic-bezier(.4,0,.2,1);--font-mono:'JetBrains Mono',monospace}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html,body{overflow-x:hidden}
@@ -31,6 +32,7 @@ body.sheet-open{overflow:hidden;height:100vh}
 .hidden{display:none!important}
 main{flex:1}
 button{font-family:inherit}
+:focus-visible{outline:2.5px solid var(--primary-light);outline-offset:2px;border-radius:4px}
 .navbar{background:var(--white);border-bottom:1px solid var(--g200);position:sticky;top:0;z-index:1000;box-shadow:var(--sh)}
 .navbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:1280px;margin:0 auto;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--g900)}
@@ -39,7 +41,7 @@ button{font-family:inherit}
 .brand-sub{font-size:.7rem;color:var(--g500)}
 .nav-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;min-height:44px;border-radius:var(--r);font-size:.9rem;font-weight:600;cursor:pointer;transition:var(--tr);border:2px solid transparent;text-decoration:none;white-space:nowrap}
-.btn-primary{background:var(--primary);color:var(--white)}
+.btn-primary{background:var(--primary);color:var(--white);box-shadow:0 3px 10px -2px rgba(11,110,100,.4)}
 .btn-outline{background:transparent;color:var(--primary);border-color:var(--primary)}
 .btn-ghost{background:transparent;color:var(--g700);border:none;padding:8px 12px;min-height:38px}
 .btn{-webkit-tap-highlight-color:transparent}
@@ -55,16 +57,17 @@ button{font-family:inherit}
 .btn-danger{background:var(--danger);color:var(--white)}
 .btn-danger:disabled{background:var(--g300);cursor:not-allowed}
 .btn-sm{padding:7px 12px;font-size:.82rem;min-height:40px}
-.hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);padding:56px 20px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;animation:mv 20s linear infinite}
-@keyframes mv{to{transform:translate(30px,30px)}}
-.hero-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;opacity:.08;pointer-events:none}
+.hero{background:linear-gradient(160deg,var(--primary),var(--primary-dark));color:var(--white);padding:56px 20px 68px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='46' viewBox='0 0 140 46'%3E%3Cpath d='M0 23 H46 L54 6 L64 40 L72 23 H140' fill='none' stroke='rgba(255,255,255,0.16)' stroke-width='2'/%3E%3C/svg%3E");background-repeat:repeat;background-size:140px 46px;animation:pulseScroll 9s linear infinite}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:34px;background-repeat:repeat-x;background-size:70px 34px;background-position:0 0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='34' viewBox='0 0 70 34'%3E%3Cpath d='M0 17 H23 L27 3 L32 30 L36 17 H70' fill='none' stroke='%23F3F8F7' stroke-width='2.5'/%3E%3C/svg%3E")}
+@keyframes pulseScroll{to{background-position:140px 0}}
+.hero-logo{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;opacity:.07;pointer-events:none}
 .hero-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:30px;font-size:.85rem;margin-bottom:20px}
-.hero h1{font-size:clamp(1.6rem,5vw,2.8rem);font-weight:900;margin-bottom:12px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:30px;font-size:.85rem;margin-bottom:20px;backdrop-filter:blur(4px)}
+.hero h1{font-size:clamp(1.6rem,5vw,2.8rem);font-weight:900;margin-bottom:12px;letter-spacing:-.01em}
 .hero p{font-size:1.05rem;opacity:.9}
 .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:24px;flex-wrap:wrap}
-.hero-stat-num{font-size:1.8rem;font-weight:900;display:block}
+.hero-stat-num{font-family:var(--font-mono);font-size:1.8rem;font-weight:700;display:block;font-variant-numeric:tabular-nums}
 .hero-stat-label{font-size:.85rem;opacity:.8}
 .search-section{background:var(--white);padding:28px 20px;border-bottom:1px solid var(--g200)}
 .search-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:0 auto 16px;max-width:1280px}
@@ -76,29 +79,33 @@ button{font-family:inherit}
 .search-bar input{flex:1;font-size:1rem}
 .results-info{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:16px auto 0;padding-top:14px;border-top:1px solid var(--g100);flex-wrap:wrap;gap:10px}
 .results-count{font-size:.9rem;color:var(--g600)}
-.results-count strong{color:var(--primary)}
+.results-count strong{color:var(--primary);font-family:var(--font-mono)}
 .press-hint{max-width:1280px;margin:10px auto 0;font-size:.78rem;color:var(--g500);display:flex;align-items:center;gap:6px}
 .press-hint svg{width:14px;height:14px;flex-shrink:0}
 .nurses-section{padding:36px 20px;max-width:1280px;margin:0 auto}
 .nurses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
 .nurse-card{background:var(--white);border-radius:var(--rl);padding:22px;box-shadow:var(--sh);transition:var(--tr);border:1px solid var(--g100);position:relative;overflow:hidden}
-.nurse-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--primary-light))}
+.nurse-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold))}
 .nurse-card{-webkit-tap-highlight-color:transparent}
 .nurse-card:active{transform:scale(.985)}
 @media(hover:hover) and (pointer:fine){.nurse-card:hover{transform:translateY(-4px);box-shadow:var(--shl)}}
-.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:8px}
+.card-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
+.card-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.15rem;flex-shrink:0}
+.card-header-text{flex:1;min-width:0}
 .card-name-wrapper{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .press-target{cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;border-radius:6px;padding:2px 4px}
 .press-target:active{background:var(--g200)}
 .card-name{font-size:1.12rem;font-weight:700;color:var(--g900)}
-.verified-badge{display:inline-flex;width:20px;height:20px;flex-shrink:0}
+.verified-badge{display:inline-flex;width:20px;height:20px;flex-shrink:0;color:var(--verified)}
 .info-btn{width:28px;height:28px;border-radius:50%;border:none;background:var(--g100);color:var(--g500);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--tr)}
 .info-btn:hover,.info-btn:active{background:var(--primary);color:var(--white)}
 .card-uni{font-size:.8rem;color:var(--g500)}
-.availability-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700;flex-shrink:0}
-.availability-badge.available{background:#d1fae5;color:#065f46}
-.availability-badge.unavailable{background:#fee2e2;color:#991b1b}
-.availability-dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+.availability-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700;flex-shrink:0}
+.availability-badge.available{background:#DCF3E7;color:#0C6E44}
+.availability-badge.unavailable{background:#FBE4E1;color:#963029}
+.availability-dot{position:relative;width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
+.availability-badge.available .availability-dot::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid currentColor;animation:pulseRing 1.8s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes pulseRing{0%{transform:scale(.4);opacity:.8}100%{transform:scale(1.7);opacity:0}}
 .card-details{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;padding:14px;background:var(--g50);border-radius:var(--r)}
 .card-detail{display:flex;align-items:center;gap:8px;font-size:.82rem}
 .card-detail-icon{width:16px;height:16px;color:var(--primary);flex-shrink:0}
@@ -107,13 +114,13 @@ button{font-family:inherit}
 .card-rating{display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--g100)}
 .stars{display:flex;gap:2px}
 .star-icon{width:18px;height:18px}
-.star-filled{color:#fbbf24}
+.star-filled{color:var(--gold)}
 .star-empty{color:var(--g300)}
-.rating-text{font-size:.85rem;color:var(--g600)}
+.rating-text{font-family:var(--font-mono);font-size:.85rem;color:var(--g600);font-variant-numeric:tabular-nums}
 .card-actions{display:flex;gap:8px}
 .card-actions .btn{flex:1;padding:10px;font-size:.82rem}
 .card-actions .btn-rate{flex:0 0 44px;padding:10px;background:var(--g100);color:var(--g700)}
-.card-actions .btn-rate:hover{background:var(--warning);color:var(--white)}
+.card-actions .btn-rate:hover{background:var(--gold);color:var(--white)}
 .load-more-container{text-align:center;margin-top:36px}
 .load-more-container .btn{padding:14px 40px;font-size:1rem}
 .info-overlay{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:1500;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
@@ -135,12 +142,14 @@ button{font-family:inherit}
 .info-contact-label{font-size:.68rem;color:var(--g500)}
 .info-contact-value{font-size:.8rem;font-weight:700;color:var(--primary);direction:ltr}
 .auth-section{min-height:calc(100vh - 200px);display:flex;align-items:center;justify-content:center;padding:36px 16px;background:linear-gradient(135deg,var(--g50),var(--secondary))}
-.auth-card{background:var(--white);border-radius:var(--rxl);padding:36px;width:100%;max-width:520px;box-shadow:var(--shl)}
+.auth-card{background:var(--white);border-radius:var(--rxl);padding:36px;width:100%;max-width:520px;box-shadow:var(--shl);position:relative;overflow:hidden}
+.auth-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold))}
 .auth-tabs{display:flex;margin-bottom:28px;border-bottom:2px solid var(--g200)}
 .auth-tab{flex:1;padding:12px;text-align:center;cursor:pointer;font-weight:600;color:var(--g500);border-bottom:2px solid transparent;margin-bottom:-2px}
 .auth-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
 .auth-form{display:flex;flex-direction:column;gap:16px}
 .form-group{display:flex;flex-direction:column;gap:6px}
+.field-locked-note{font-size:.72rem;color:var(--g500)}
 .form-group label{font-size:.85rem;font-weight:600;color:var(--g700)}
 .form-group input,.form-group select,.form-group textarea{padding:12px 14px;min-height:44px;border:2px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:.95rem}
 .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary)}
@@ -164,13 +173,14 @@ button{font-family:inherit}
 .disclaimer-text{font-size:.82rem;color:var(--g700)}
 .disclaimer-text strong{color:#92400e}
 .dashboard-section{padding:36px 20px;max-width:900px;margin:0 auto}
-.dashboard-header{background:var(--white);border-radius:var(--rxl);padding:26px;margin-bottom:22px;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.dashboard-header{background:var(--white);border-radius:var(--rxl);padding:26px;margin-bottom:22px;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;overflow:hidden}
+.dashboard-header::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--gold))}
 .dashboard-welcome h2{font-size:1.4rem;color:var(--g900);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .dashboard-welcome p{color:var(--g500);font-size:.9rem}
 .dashboard-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:22px}
 .stat-card{background:var(--white);border-radius:var(--rl);padding:18px;text-align:center;box-shadow:var(--sh)}
 .stat-icon{width:38px;height:38px;margin:0 auto 10px;color:var(--primary)}
-.stat-value{font-size:1.7rem;font-weight:800;color:var(--g900)}
+.stat-value{font-family:var(--font-mono);font-size:1.7rem;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums}
 .stat-label{font-size:.78rem;color:var(--g500)}
 .dashboard-card{background:var(--white);border-radius:var(--rxl);padding:26px;margin-bottom:22px;box-shadow:var(--sh)}
 .dashboard-card h3{font-size:1.15rem;margin-bottom:18px;color:var(--g900);padding-bottom:12px;border-bottom:1px solid var(--g200)}
@@ -201,7 +211,7 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .delete-warning{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r);padding:14px;font-size:.85rem;color:#991b1b;margin-bottom:16px;line-height:1.7}
 .rating-input{display:flex;justify-content:center;gap:8px;margin-bottom:18px;padding:16px;background:var(--g50);border-radius:var(--r)}
 .rsw{border:none;background:none;padding:0;cursor:pointer;width:42px;height:42px;color:var(--g300);transition:var(--tr)}
-.rsw:hover,.rsw.active{color:#fbbf24;transform:scale(1.1)}
+.rsw:hover,.rsw.active{color:var(--gold);transform:scale(1.1)}
 .rsw svg{width:100%;height:100%}
 .loading-spinner{display:flex;justify-content:center;padding:40px}
 .spinner{width:40px;height:40px;border:4px solid var(--g200);border-top-color:var(--primary);border-radius:50%;animation:sp .8s linear infinite}
@@ -224,6 +234,9 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .footer-bottom{display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;font-size:.85rem}
 .footer-links{display:flex;gap:18px}
 .footer-links a{color:var(--g500);text-decoration:none}
+.footer-credit{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.78rem;color:var(--g500)}
+.footer-credit strong{color:var(--g300);font-weight:700;letter-spacing:.02em;font-family:var(--font-mono)}
+.footer-credit-mark{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--primary-light),var(--gold));color:var(--primary-dark);font-family:var(--font-mono);font-weight:700;font-size:.72rem;flex-shrink:0}
 /* ===== تجاوب الجوال ===== */
 @media(max-width:640px){
 /* شريط التنقل: أضغط وأخف مع مساحات لمس مريحة */
@@ -234,14 +247,14 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .nav-actions{gap:6px}
 .btn-lang{padding:8px 10px;font-size:.78rem}
 
-/* البطل: أخف وزناً وأسرع رسماً، بلا حركة مشتتة على الجوال */
-.hero{padding:28px 14px 24px}
+/* البطل: ترويسة خفيفة وبسيطة تفسح المجال لعرض الممرضين */
+.hero{padding:16px 16px 20px}
 .hero::before{animation:none}
-.hero-badge{padding:6px 12px;font-size:.78rem;margin-bottom:14px}
-.hero p{font-size:.9rem}
-.hero-stats{gap:16px;margin-top:18px}
-.hero-stat-num{font-size:1.3rem}
-.hero-logo{width:220px;height:220px}
+.hero-badge{display:none}
+.hero h1{font-size:1.05rem;font-weight:800;margin-bottom:0;line-height:1.4}
+.hero p{display:none}
+.hero-stats{display:none}
+.hero-logo{width:130px;height:130px;opacity:.06}
 
 /* منطقة البحث: فلاتر قابلة للطي لتقليل التمرير والوصول أسرع للنتائج */
 .search-section{padding:14px 14px 10px}
@@ -256,14 +269,30 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 .results-info{margin-top:12px;padding-top:10px}
 .press-hint{display:none}
 
-.nurses-section{padding:18px 12px}
-.nurses-grid{grid-template-columns:1fr;gap:12px}
-.nurse-card{padding:16px;border-radius:14px}
+/* بطاقات الممرضين: شبكة أفقية مضغوطة (عمودان) بأسلوب متاجر التطبيقات */
+.nurses-section{padding:14px 10px}
+.nurses-grid{grid-template-columns:1fr 1fr;gap:10px}
+.nurse-card{padding:12px;border-radius:14px;cursor:pointer}
 .nurse-card::before{height:3px}
-.card-details{padding:11px;gap:8px}
-.card-actions{gap:6px}
-.card-actions .btn{flex:1 1 45%;min-height:46px}
-.card-actions .btn-rate{flex:0 0 46px}
+.card-header{flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.card-avatar{width:36px;height:36px;font-size:.88rem;border-radius:10px}
+.card-header-text{min-width:0}
+.card-name{font-size:.82rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.card-name-wrapper{gap:3px;flex-wrap:nowrap}
+.verified-badge{width:14px;height:14px}
+.info-btn{width:20px;height:20px}
+.info-btn svg{width:11px;height:11px}
+.card-uni{font-size:.62rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.availability-badge{flex-basis:100%;width:fit-content;font-size:.6rem;padding:3px 8px;gap:4px}
+.card-details{display:none}
+.card-rating{margin-bottom:10px;padding-bottom:8px;gap:5px}
+.star-icon{width:12px;height:12px}
+.rating-text{font-size:.68rem}
+.card-actions{gap:5px}
+.card-actions .btn{flex:1;padding:9px 4px;min-height:40px}
+.card-actions .btn .btn-txt{display:none}
+.card-actions .btn-icon{width:15px;height:15px}
+.card-actions .btn-rate{flex:0 0 40px;padding:9px}
 
 .auth-section{padding:20px 12px;min-height:calc(100vh - 160px)}
 .auth-card{padding:22px 16px;border-radius:18px}
@@ -430,7 +459,7 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
     <div class="dashboard-header">
       <div class="dashboard-welcome">
         <h2><span data-i18n="welcome">مرحباً</span>، <span id="dashName"></span>!
-          <span id="dashVerifiedBadge" class="hidden"><svg class="verified-badge" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#3b82f6"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span id="dashVerifiedBadge" class="hidden"><svg class="verified-badge" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>
         </h2>
         <p data-i18n="manage_profile">إدارة ملفك المهني</p>
       </div>
@@ -484,7 +513,7 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
         <div class="form-group"><label data-i18n="university">الجامعة / المعهد</label><input type="text" id="profileUniversity" required></div>
         <div class="form-row">
           <div class="form-group"><label data-i18n="years_experience">سنوات الخبرة</label><input type="number" id="profileExperience" required min="0" max="50"></div>
-          <div class="form-group"><label data-i18n="gender">النوع</label><select id="profileGender" disabled><option value="male" data-i18n="male">ممرض</option><option value="female" data-i18n="female">ممرضة</option></select></div>
+          <div class="form-group"><label data-i18n="gender">النوع</label><select id="profileGender" disabled><option value="male" data-i18n="male">ممرض</option><option value="female" data-i18n="female">ممرضة</option></select><span class="field-locked-note" data-i18n="gender_locked_note">لا يمكن تغيير هذا الحقل بعد إنشاء الحساب</span></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label data-i18n="phone">رقم الهاتف</label><input type="tel" id="profilePhone" required></div>
@@ -506,13 +535,17 @@ input:checked+.toggle-slider::before{transform:translateX(26px)}
 
 <footer class="footer"><div class="footer-content">
   <div class="footer-logo">
-    <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 C15 4 8 11 8 19 C8 30 24 44 24 44 C24 44 40 30 40 19 C40 11 33 4 24 4 Z" fill="#0e7490"/><path d="M24 12 L24 26 M17 19 L31 19" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 48 48" fill="none"><path d="M24 4 C15 4 8 11 8 19 C8 30 24 44 24 44 C24 44 40 30 40 19 C40 11 33 4 24 4 Z" fill="#0B6E64"/><path d="M24 12 L24 26 M17 19 L31 19" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
     <div><div class="footer-brand-name" data-i18n="brand_name">ممرض/ة في منطقتك</div><div class="footer-brand-sub" data-i18n="brand_sub">منصة التمريض السورية</div></div>
   </div>
   <div class="footer-divider"></div>
   <div class="footer-bottom">
     <span data-i18n="footer_rights">© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.</span>
     <div class="footer-links"><a href="#" data-i18n="footer_privacy">سياسة الخصوصية</a><a href="#" data-i18n="footer_terms">شروط الاستخدام</a><a href="#" data-i18n="footer_contact">اتصل بنا</a></div>
+  </div>
+  <div class="footer-credit">
+    <span class="footer-credit-mark">H</span>
+    <span><span data-i18n="footer_credit">تطوير</span> <strong>H-yber Management</strong></span>
   </div>
 </div></footer>
 
@@ -577,8 +610,8 @@ document.dispatchEvent(new Event('firebaseReady'));
 
 <script>
 const T = {
-  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",all_areas:"جميع المحافظات",gender:"النوع",all:"الكل",male:"ممرض",female:"ممرضة",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"التوفر",available_for_hire:"متاح/ة للعمل",toggle_desc:"تبديل حالة التوفر للعملاء المحتملين",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث حالة التوفر!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حسابك موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_gender:"النوع",info_exp:"الخبرة",info_gov:"المحافظة",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا"},
-  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",all_areas:"All Governorates",gender:"Gender",all:"All",male:"Male Nurse",female:"Female Nurse",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability",available_for_hire:"Available for Hire",toggle_desc:"Toggle your availability status",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability updated!",rating_submitted:"Thank you! Rating submitted.",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_gender:"Gender",info_exp:"Experience",info_gov:"Governorate",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us"}
+  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",all_areas:"جميع المحافظات",gender:"النوع",all:"الكل",male:"ممرض",female:"ممرضة",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"التوفر",available_for_hire:"متاح/ة للعمل",toggle_desc:"تبديل حالة التوفر للعملاء المحتملين",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث حالة التوفر!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حسابك موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_gender:"النوع",info_exp:"الخبرة",info_gov:"المحافظة",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",gender_locked_note:"لا يمكن تغيير هذا الحقل بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير"},
+  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",all_areas:"All Governorates",gender:"Gender",all:"All",male:"Male Nurse",female:"Female Nurse",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability",available_for_hire:"Available for Hire",toggle_desc:"Toggle your availability status",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability updated!",rating_submitted:"Thank you! Rating submitted.",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_gender:"Gender",info_exp:"Experience",info_gov:"Governorate",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",gender_locked_note:"This field cannot be changed after account creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by"}
 };
 
 const S = {
@@ -658,6 +691,17 @@ function bindPress(){
     show(n);
   });
 
+  // الضغط على أي جزء من البطاقة (خارج الأزرار الفعلية) يفتح التفاصيل الكاملة
+  grid.addEventListener('click', e => {
+    const card = e.target.closest('.nurse-card');
+    if (!card) return;
+    if (e.target.closest('a,button')) return;
+    const n = S.nurses.find(x => x.id === card.getAttribute('data-card-id'));
+    if (!n) return;
+    pinned = true;
+    show(n);
+  });
+
   overlay.addEventListener('click', e => {
     if (e.target === overlay || e.target.closest('.info-close')) {
       pinned = false;
@@ -670,7 +714,7 @@ function bindPress(){
 
 function fillInfo(n){
   const d = T[S.lang];
-  const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#3b82f6"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
+  const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
   document.getElementById('infoCard').innerHTML =
     '<div class="sheet-handle"></div>'+
     '<button class="info-close" onclick="closeInfo()"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3 L13 13 M13 3 L3 13" stroke="currentColor" stroke-width="2"/></svg></button>'+
@@ -1037,15 +1081,16 @@ function render(){
 
 function card(n){
   const d = T[S.lang], r = n.ratingAvg || 0, rv = n.reviewsCount || 0;
-  const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#3b82f6"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
-  return '<div class="nurse-card"><div class="card-header"><div><div class="card-name-wrapper"><span class="press-target" data-id="'+n.id+'"><span class="card-name">'+esc(n.fullName||'')+'</span></span>'+badge+'<button class="info-btn" data-info="'+n.id+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg></button></div><div class="card-uni">'+esc(n.university||'')+'</div></div><span class="availability-badge '+(n.isAvailable?'available':'unavailable')+'"><span class="availability-dot"></span>'+(n.isAvailable?d.available:d.unavailable)+'</span></div>'+
+  const badge = n.isVerified ? '<span class="verified-badge"><svg viewBox="0 0 24 24" fill="none" width="20" height="20"><circle cx="12" cy="12" r="10" fill="#1C7FA0"/><path d="M8 12 L11 15 L16 9" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>' : '';
+  const initial = (n.fullName||'?').trim().charAt(0);
+  return '<div class="nurse-card" data-card-id="'+n.id+'"><div class="card-header"><div class="card-avatar">'+esc(initial)+'</div><div class="card-header-text"><div class="card-name-wrapper"><span class="press-target" data-id="'+n.id+'"><span class="card-name">'+esc(n.fullName||'')+'</span></span>'+badge+'<button class="info-btn" data-info="'+n.id+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16 L12 12 M12 8 L12 8" stroke-linecap="round"/></svg></button></div><div class="card-uni">'+esc(n.university||'')+'</div></div><span class="availability-badge '+(n.isAvailable?'available':'unavailable')+'"><span class="availability-dot"></span>'+(n.isAvailable?d.available:d.unavailable)+'</span></div>'+
   '<div class="card-details">'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6 L12 12 L16 14" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.experience+'</div><div class="card-detail-value">'+(n.yearsOfExperience||0)+' '+d.yrs+'</div></div></div>'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2 C8 2 5 5 5 9 C5 14 12 22 12 22 C12 22 19 14 19 9 C19 5 16 2 12 2 Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.governorate+'</div><div class="card-detail-value">'+esc(n.governorate||'')+'</div></div></div>'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><path d="M4 20 L4 8 L12 4 L20 8 L20 20 Z" stroke="currentColor" stroke-width="2"/><rect x="9" y="14" width="6" height="6" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.city_area+'</div><div class="card-detail-value">'+esc(n.cityArea||'')+'</div></div></div>'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M6 21 C6 17 8.7 14 12 14 C15.3 14 18 17 18 21" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.gender+'</div><div class="card-detail-value">'+(n.gender==='male'?d.male:d.female)+'</div></div></div>'+
   '</div><div class="card-rating"><div class="stars">'+stars(r)+'</div><span class="rating-text"><strong>'+r.toFixed(1)+'</strong> ('+rv+' '+(rv===1?d.review:d.reviews_count)+')</span></div>'+
-  '<div class="card-actions"><a href="https://wa.me/'+(n.whatsappNumber||'')+'" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">'+d.whatsapp_action+'</a><a href="tel:'+(n.phoneNumber||'')+'" class="btn btn-call btn-sm">'+d.call_action+'</a><button class="btn btn-rate btn-sm" onclick="openRateModal(\''+n.id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 19 L6 22 L7 15 L2 10 L9 9 Z"/></svg></button></div></div>';
+  '<div class="card-actions"><a href="https://wa.me/'+(n.whatsappNumber||'')+'" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.3C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.9.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg><span class="btn-txt">'+d.whatsapp_action+'</span></a><a href="tel:'+(n.phoneNumber||'')+'" class="btn btn-call btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span class="btn-txt">'+d.call_action+'</span></a><button class="btn btn-rate btn-sm" onclick="openRateModal(\''+n.id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 19 L6 22 L7 15 L2 10 L9 9 Z"/></svg></button></div></div>';
 }
 
 function stars(r){
