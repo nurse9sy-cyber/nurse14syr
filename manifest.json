@@ -1,0 +1,23 @@
+{
+  "name": "ممرض/ة في منطقتك",
+  "short_name": "تمريض",
+  "description": "منصة التمريض السورية لربط المرضى بالممرضين",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F3F8F7",
+  "theme_color": "#0B6E64",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
