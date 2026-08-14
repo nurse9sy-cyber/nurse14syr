@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -49,7 +48,12 @@ button{font-family:inherit}
   .btn-ghost:hover{background:var(--g100)}
 }
 .btn-lang{background:var(--g100);color:var(--g700);border:none;padding:8px 14px;font-weight:700;font-size:.85rem;border-radius:6px;min-height:38px}
-.btn-whatsapp{background:#25D366;color:var(--white)}
+.btn-magazine{background:linear-gradient(135deg,var(--gold),#f3bb4e);color:var(--primary-dark);border:none;font-weight:800;position:relative;overflow:hidden;box-shadow:0 4px 12px -2px rgba(227,164,48,.55)}
+.btn-magazine svg{color:var(--primary-dark)}
+.btn-magazine::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:magShine 4s ease-in-out infinite}
+@keyframes magShine{0%{left:-70%}45%{left:130%}100%{left:130%}}
+@media(hover:hover) and (pointer:fine){.btn-magazine:hover{transform:translateY(-2px);box-shadow:0 6px 16px -2px rgba(227,164,48,.7)}}
+.btn-whatsapp{background:#25D366;color:var(--white);box-shadow:0 3px 8px -2px rgba(37,211,102,.5)}
 .btn-call{background:var(--primary);color:var(--white)}
 .btn-danger{background:var(--danger);color:var(--white)}
 .btn-danger:disabled{background:var(--g300);cursor:not-allowed}
@@ -143,6 +147,11 @@ button{font-family:inherit}
 .info-item.full{grid-column:1/-1}
 .info-label{font-size:.68rem;color:var(--g500)}
 .info-value{font-size:.82rem;font-weight:700;color:var(--g800);word-break:break-word}
+.info-services{background:var(--g50);border-radius:8px;padding:10px 10px;margin-bottom:12px}
+.info-services-label{font-size:.68rem;color:var(--g500);margin-bottom:6px}
+.info-services-chips{display:flex;flex-wrap:wrap;gap:6px}
+.service-chip{display:inline-block;padding:4px 11px;border-radius:20px;background:#DCF3E7;color:#0C6E44;font-size:.72rem;font-weight:700}
+.info-services-empty{font-size:.78rem;color:var(--g500)}
 .info-contacts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .info-contact{background:var(--g50);border-radius:8px;padding:8px 10px;text-align:center}
 .info-contact-label{font-size:.68rem;color:var(--g500)}
@@ -273,6 +282,10 @@ button{font-family:inherit}
 .footer-credit{display:flex;align-items:center;justify-content:center;gap:8px;font-size:.78rem;color:var(--g500)}
 .footer-credit strong{color:var(--g300);font-weight:700;letter-spacing:.02em;font-family:var(--font-mono)}
 .footer-credit-mark{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--primary-light),var(--gold));color:var(--primary-dark);font-family:var(--font-mono);font-weight:700;font-size:.72rem;flex-shrink:0}
+.footer-visits{display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border-radius:30px;background:linear-gradient(135deg,rgba(79,209,184,.16),rgba(227,164,48,.16));border:1.5px solid var(--primary-light);box-shadow:0 0 0 4px rgba(79,209,184,.06)}
+.footer-visits svg{width:20px;height:20px;color:var(--primary-light);flex-shrink:0}
+.footer-visits-num{font-family:var(--font-mono);font-size:1.35rem;font-weight:800;color:var(--white);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.footer-visits-label{font-size:.78rem;color:var(--g300);font-weight:600}
 
 @media(max-width:640px){
 .navbar-inner{padding:8px 14px;gap:8px}
@@ -372,8 +385,8 @@ button{font-family:inherit}
     <div><div class="brand-name" data-i18n="brand_name">ممرض/ة في منطقتك</div><div class="brand-sub" data-i18n="brand_sub">منصة التمريض السورية</div></div>
   </a>
   <div class="nav-actions">
-    <button class="btn btn-outline btn-sm" style="background:#f0fdf4; border-width:2px; font-weight:800; box-shadow:0 2px 6px rgba(11,110,100,0.15);" onclick="navigate('magazine')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-inline-end:5px; flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18 M9 21V9"/></svg>
+    <button class="btn btn-magazine btn-sm" onclick="navigate('magazine')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="margin-inline-end:5px; flex-shrink:0;"><path d="M12 21 C10 19.5 6.5 19 4 19.3 V5.3 C6.5 5 10 5.5 12 7 C14 5.5 17.5 5 20 5.3 V19.3 C17.5 19 14 19.5 12 21 Z"/><path d="M12 7 V21"/></svg>
       <span data-i18n="nav_magazine">المجلة</span>
     </button>
     <button class="btn btn-lang" id="langToggle" onclick="toggleLanguage()">EN</button>
@@ -428,7 +441,6 @@ button{font-family:inherit}
         <button class="btn btn-ghost btn-sm" onclick="resetFilters()" data-i18n="reset_filters">إعادة تعيين</button>
       </div>
       <div class="export-actions">
-        <button class="btn btn-outline btn-sm" onclick="exportCSV()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end:4px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg><span data-i18n="export_csv">تصدير CSV</span></button>
         <button class="btn btn-outline btn-sm" onclick="exportPDF()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-inline-end:4px"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg><span data-i18n="export_pdf">تقرير PDF</span></button>
       </div>
     </div>
@@ -575,6 +587,10 @@ button{font-family:inherit}
         <label data-i18n="select_govs">المحافظات (يمكن اختيار أكثر من واحدة)</label>
         <div id="regGovernorates" class="days-selector" style="margin-top:0"></div>
       </div>
+      <div class="form-group">
+        <label data-i18n="select_services">اختر الخدمات التي يمكنك تقديمها</label>
+        <div id="regServices" class="days-selector" style="margin-top:0"></div>
+      </div>
       <div class="form-group"><label data-i18n="city_area">المنطقة / الحي</label><input type="text" id="regCityArea" required></div>
       <div class="form-group"><label data-i18n="university">الجامعة / المعهد</label><input type="text" id="regUniversity" required></div>
       <div class="form-row">
@@ -700,13 +716,20 @@ button{font-family:inherit}
           <label data-i18n="select_govs">المحافظات (يمكن اختيار أكثر من واحدة)</label>
           <div id="profileGovernorates" class="days-selector" style="margin-top:0"></div>
         </div>
+        <div class="form-group">
+          <label data-i18n="select_services">اختر الخدمات التي يمكنك تقديمها</label>
+          <div id="profileServices" class="days-selector" style="margin-top:0"></div>
+        </div>
         <div class="form-group"><label data-i18n="city_area">المنطقة / الحي</label><input type="text" id="profileCityArea" required></div>
         <div class="form-group"><label data-i18n="university">الجامعة / المعهد</label><input type="text" id="profileUniversity" required></div>
         <div class="form-row">
           <div class="form-group"><label data-i18n="gender">الجنس</label><select id="profileGender" disabled><option value="male" data-i18n="male">ذكر</option><option value="female" data-i18n="female">أنثى</option></select></div>
           <div class="form-group"><label data-i18n="profession">المهنة</label><select id="profileProfession" disabled><option value="nurse_m" data-i18n="nurse_m">ممرض</option><option value="nurse_f" data-i18n="nurse_f">ممرضة</option><option value="midwife" data-i18n="midwife">قابلة</option></select></div>
         </div>
-        <div class="form-group"><span class="field-locked-note" data-i18n="gender_locked_note">لا يمكن تغيير الجنس والمهنة بعد إنشاء الحساب</span></div>
+        <div class="form-group" id="genderProfessionNoteRow" style="flex-direction:row;align-items:center;justify-content:space-between;gap:10px">
+          <span class="field-locked-note" id="genderProfessionNote" data-i18n="gender_locked_note">لا يمكن تغيير الجنس والمهنة بعد إنشاء الحساب</span>
+          <button type="button" class="btn btn-outline btn-sm" id="editGenderProfBtn" style="flex-shrink:0" onclick="enableGenderProfessionEdit()" data-i18n="edit_gender_profession">تعديل</button>
+        </div>
         <div class="form-group"><label data-i18n="years_experience">سنوات الخبرة</label><input type="number" id="profileExperience" required min="0" max="50"></div>
         <div class="form-row">
           <div class="form-group"><label data-i18n="phone">رقم الهاتف</label><input type="tel" id="profilePhone" required></div>
@@ -732,6 +755,10 @@ button{font-family:inherit}
     <svg viewBox="0 0 48 48" fill="none"><path d="M24 4C16.27 4 10 10.27 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.73-6.27-14-14-14z" fill="#0B6E64"/><path d="M24 12v12m-6-6h12" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>
     <div><div class="footer-brand-name" data-i18n="brand_name">ممرض/ة في منطقتك</div><div class="footer-brand-sub" data-i18n="brand_sub">منصة التمريض السورية</div></div>
   </div>
+  <div class="footer-visits">
+    <span class="footer-visits-num" id="footerVisitsNum">0</span>
+    <span class="footer-visits-label" data-i18n="site_visits">عدد زيارات الموقع</span>
+  </div>
   <div class="footer-divider"></div>
   <div class="footer-bottom">
     <span data-i18n="footer_rights">© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.</span>
@@ -755,7 +782,7 @@ button{font-family:inherit}
   <h3 data-i18n="footer_contact">اتصل بنا</h3>
   <p style="text-align:center; direction:ltr; font-family:var(--font-mono); font-size:1.4rem; font-weight:bold; color:var(--g900); margin-bottom: 24px;">+963994805892</p>
   <div style="display:flex; gap:12px; flex-wrap: wrap;">
-    <a href="https://wa.me/963994805892" target="_blank" class="btn btn-whatsapp" style="flex:1; padding: 14px;"><svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.3C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.9.1.1.1.3 0 .4-.1.2-.1.3-.3.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg><span data-i18n="whatsapp_action">واتساب</span></a>
+    <a href="https://wa.me/963994805892" target="_blank" class="btn btn-whatsapp" style="flex:1; padding: 14px;"><svg class="btn-icon" width="20" height="20" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.9 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg><span data-i18n="whatsapp_action">واتساب</span></a>
     <a href="tel:+963994805892" class="btn btn-call" style="flex:1; padding: 14px;"><svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span data-i18n="call_action">اتصال</span></a>
   </div>
 </div></div>
@@ -819,14 +846,16 @@ document.dispatchEvent(new Event('firebaseReady'));
 
 <script>
 const T = {
-  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",nav_magazine:"المجلة",mag_title:"المجلة الصحية والإسعافات الأولية",mag_subtitle:"نصائح وإرشادات طبية",art1_title:"الإسعافات الأولية للحروق",art1_desc:"ضع مكان الحرق تحت ماء جارٍ بارد (ليس مثلجاً) لمدة 10-15 دقيقة. لا تستخدم الثلج أو معجون الأسنان، وقم بتغطية الحرق بضمادة معقمة غير لاصقة.",art2_title:"الإنعاش القلبي الرئوي (CPR)",art2_desc:"في حال توقف النبض والتنفس، ابدأ بضغطات الصدر بقوة وسرعة (100-120 ضغطة/دقيقة) في منتصف الصدر. استمر حتى وصول المساعدة الطبية.",art3_title:"التعامل مع الرعاف (نزيف الأنف)",art3_desc:"اجلس وانحنِ للأمام قليلاً (وليس للخلف). اضغط على الجزء اللين من الأنف لمدة 10 دقائق متواصلة وتنفس من فمك حتى يتوقف النزيف.",art4_title:"علامات هبوط السكر",art4_desc:"تشمل الأعراض التعرق، الارتجاف، الجوع الشديد، والدوخة. يجب إعطاء المريض الواعي عصير محلى أو قطعة حلوى فوراً ومراقبة حالته.",art5_title:"قياس ضغط الدم بالمنزل",art5_desc:"ارتح لمدة 5 دقائق قبل القياس. اجلس وظهرك مدعوم، وقدميك على الأرض، واجعل ذراعك في مستوى القلب. تجنب الكلام أثناء القياس.",art6_title:"متى تطلب الطوارئ؟",art6_desc:"اطلب المساعدة فوراً عند: ألم شديد في الصدر، صعوبة في التنفس، فقدان الوعي، ضعف مفاجئ في جانب واحد من الجسم، أو نزيف لا يتوقف.",art7_title:"التعامل مع التسمم الغذائي",art7_desc:"أكثر من شرب السوائل لتجنب الجفاف، وتجنب الأطعمة الصلبة أو الدسمة حتى تستقر المعدة. راجع الطبيب إذا استمرت الأعراض.",art8_title:"ضربة الشمس والإجهاد الحراري",art8_desc:"انقل المصاب فوراً لمكان بارد ومظلل، وقم بتبريد جسمه باستخدام كمادات ماء بارد، واعطه رشفات من الماء إذا كان واعياً.",art9_title:"لدغات الحشرات واللسعات",art9_desc:"أزل إبرة الحشرة بلطف إن وجدت، واغسل المكان بالماء والصابون، ثم ضع كمادة باردة لتقليل التورم وتخفيف الألم.",art10_title:"الاختناق والغصة (مناورة هايمليخ)",art10_desc:"قف خلف المصاب ولف ذراعيك حول خصره، ثم قم بتوجيه 5 ضغطات قوية للداخل والأعلى أعلى السرة بقليل لدفع الجسم الغريب.",art11_title:"العناية بالجروح المفتوحة",art11_desc:"اضغط مباشرة على الجرح بقطعة قماش نظيفة لوقف النزيف. اغسله بالماء الجاري بلطف، وضع مرهماً مضاداً حيوياً وضمادة معقمة.",art12_title:"التعامل مع نوبات الصرع",art12_desc:"أبعد الأشياء الحادة، وضع شيئاً ناعماً تحت رأس المصاب. لا تحاول تقييد حركته أو وضع شيء في فمه، وراقب وقت النوبة.",art13_title:"الكسور والالتواءات المفاجئة",art13_desc:"لا تحاول تقويم العظم المكسور. قم بتثبيت الطرف المصاب باستخدام جبيرة مؤقتة، وضع ثلجاً لتخفيف التورم واطلب المساعدة.",art14_title:"صدمة الحساسية المفرطة",art14_desc:"حالة طارئة تتطلب تدخلاً فورياً. استخدم حقنة الإيبينفرين (EpiPen) إذا كانت متوفرة لدى المريض، واتصل بالطوارئ فوراً.",art15_title:"حالات الإغماء وفقدان الوعي",art15_desc:"اجعل الشخص يستلقي على ظهره وارفع ساقيه قليلاً فوق مستوى القلب لزيادة تدفق الدم للدماغ، وقم بإرخاء ملابسه الضيقة.",art16_title:"الحفاظ على صحة الكليتين",art16_desc:"اشرب كميات كافية من الماء يومياً، وقلل من تناول الملح والسكريات، وتجنب الإفراط في استخدام المسكنات بدون استشارة طبية.",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",select_govs:"المحافظات (يمكن اختيار أكثر من واحدة)",select_one_gov:"الرجاء اختيار محافظة واحدة على الأقل",all_areas:"جميع المحافظات",gender:"الجنس",profession:"المهنة",nurse_m:"ممرض",nurse_f:"ممرضة",midwife:"قابلة",all:"الكل",male:"ذكر",female:"أنثى",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",favorites_only:"المفضلة",export_csv:"تصدير CSV",export_pdf:"تقرير PDF",export_id:"تصدير بطاقة العمل",checklists_title:"القوائم المرجعية (معداتي)",firstaid_tab:"الإسعافات",dressing_tab:"أدوات الغيار",id_exported:"تم تصدير البطاقة بنجاح",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"أيام العمل والتفرغ",availability_days_desc:"اختر الأيام التي تكون فيها متفرغاً لاستقبال طلبات العمل. ستظهر للمستخدمين فقط في هذه الأيام.",sun:"الأحد",mon:"الإثنين",tue:"الثلاثاء",wed:"الأربعاء",thu:"الخميس",fri:"الجمعة",sat:"السبت",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",share_whatsapp:"مشاركة عبر واتساب",reviews_title:"تعليقات المستخدمين",no_reviews_yet:"لا توجد تعليقات نصية بعد.",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث أيام العمل بنجاح!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",sending:"جاري الإرسال...",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حساب موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_exp:"الخبرة",info_gov:"المحافظة/المحافظات",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",gender_locked_note:"لا يمكن تغيير الجنس والمهنة بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير"},
-  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",nav_magazine:"Magazine",mag_title:"Health & First Aid Magazine",mag_subtitle:"Medical tips and guidelines",art1_title:"First Aid for Burns",art1_desc:"Place the burn under cool running water for 10-15 minutes. Do not use ice or toothpaste, and cover with a sterile, non-stick dressing.",art2_title:"Cardiopulmonary Resuscitation (CPR)",art2_desc:"If pulse and breathing stop, begin fast and hard chest compressions (100-120 per minute) in the center of the chest until help arrives.",art3_title:"Handling Nosebleeds",art3_desc:"Sit and lean slightly forward (not backward). Pinch the soft part of the nose for 10 continuous minutes and breathe through your mouth.",art4_title:"Signs of Hypoglycemia",art4_desc:"Symptoms include sweating, trembling, extreme hunger, and dizziness. Give a conscious patient a sugary drink or candy immediately.",art5_title:"Measuring BP at Home",art5_desc:"Rest for 5 minutes before measuring. Sit with your back supported, feet flat on the floor, and arm at heart level. Avoid talking.",art6_title:"When to Call Emergencies?",art6_desc:"Seek immediate help for: severe chest pain, breathing difficulty, loss of consciousness, sudden weakness on one side, or uncontrollable bleeding.",art7_title:"Handling Food Poisoning",art7_desc:"Drink plenty of fluids to avoid dehydration. Avoid solid or fatty foods until the stomach settles. See a doctor if symptoms persist.",art8_title:"Heatstroke & Exhaustion",art8_desc:"Move the person to a cool, shaded area immediately. Cool their body with cold water compresses and give sips of water if conscious.",art9_title:"Insect Stings & Bites",art9_desc:"Gently remove the stinger if present, wash the area with soap and water, and apply a cold compress to reduce swelling and pain.",art10_title:"Choking (Heimlich Maneuver)",art10_desc:"Stand behind the person, wrap your arms around their waist, and give 5 quick upward abdominal thrusts just above the navel.",art11_title:"Caring for Open Wounds",art11_desc:"Apply direct pressure with a clean cloth to stop bleeding. Wash gently with running water, apply antibiotic ointment, and cover.",art12_title:"Handling Epileptic Seizures",art12_desc:"Clear sharp objects away and cushion the head. Do not restrain them or put anything in their mouth. Time the seizure.",art13_title:"Fractures and Sprains",art13_desc:"Do not try to realign the bone. Immobilize the injured limb, apply ice to reduce swelling, and seek immediate medical help.",art14_title:"Anaphylactic Shock",art14_desc:"A severe emergency. Use an epinephrine auto-injector (EpiPen) immediately if available, and call emergency services right away.",art15_title:"Fainting and Passing Out",art15_desc:"Lay the person flat on their back and elevate their legs slightly above heart level to increase blood flow to the brain. Loosen tight clothing.",art16_title:"Maintaining Kidney Health",art16_desc:"Drink adequate amounts of water daily, reduce salt and sugar intake, and avoid overusing painkillers without medical advice.",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",select_govs:"Governorates (Select one or more)",select_one_gov:"Please select at least one governorate",all_areas:"All Governorates",gender:"Gender",profession:"Profession",nurse_m:"Male Nurse",nurse_f:"Female Nurse",midwife:"Midwife",all:"All",male:"Male",female:"Female",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",favorites_only:"Favorites",export_csv:"Export CSV",export_pdf:"Print PDF",export_id:"Export ID Card",checklists_title:"My Checklists",firstaid_tab:"First Aid",dressing_tab:"Dressing Kit",id_exported:"ID Exported Successfully",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability Days",availability_days_desc:"Choose the days you are available to work. You will only appear to users on these days.",sun:"Sun",mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",share_whatsapp:"Share via WhatsApp",reviews_title:"User Reviews",no_reviews_yet:"No text reviews yet.",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability days updated!",rating_submitted:"Thank you! Rating submitted.",sending:"Sending...",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_exp:"Experience",info_gov:"Governorates",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",gender_locked_note:"Gender and Profession cannot be changed after creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by"}
+  ar: {brand_name:"ممرض/ة في منطقتك",brand_sub:"منصة التمريض السورية",nav_magazine:"المجلة",mag_title:"المجلة الصحية والإسعافات الأولية",mag_subtitle:"نصائح وإرشادات طبية",art1_title:"الإسعافات الأولية للحروق",art1_desc:"ضع مكان الحرق تحت ماء جارٍ بارد (ليس مثلجاً) لمدة 10-15 دقيقة. لا تستخدم الثلج أو معجون الأسنان، وقم بتغطية الحرق بضمادة معقمة غير لاصقة.",art2_title:"الإنعاش القلبي الرئوي (CPR)",art2_desc:"في حال توقف النبض والتنفس، ابدأ بضغطات الصدر بقوة وسرعة (100-120 ضغطة/دقيقة) في منتصف الصدر. استمر حتى وصول المساعدة الطبية.",art3_title:"التعامل مع الرعاف (نزيف الأنف)",art3_desc:"اجلس وانحنِ للأمام قليلاً (وليس للخلف). اضغط على الجزء اللين من الأنف لمدة 10 دقائق متواصلة وتنفس من فمك حتى يتوقف النزيف.",art4_title:"علامات هبوط السكر",art4_desc:"تشمل الأعراض التعرق، الارتجاف، الجوع الشديد، والدوخة. يجب إعطاء المريض الواعي عصير محلى أو قطعة حلوى فوراً ومراقبة حالته.",art5_title:"قياس ضغط الدم بالمنزل",art5_desc:"ارتح لمدة 5 دقائق قبل القياس. اجلس وظهرك مدعوم، وقدميك على الأرض، واجعل ذراعك في مستوى القلب. تجنب الكلام أثناء القياس.",art6_title:"متى تطلب الطوارئ؟",art6_desc:"اطلب المساعدة فوراً عند: ألم شديد في الصدر، صعوبة في التنفس، فقدان الوعي، ضعف مفاجئ في جانب واحد من الجسم، أو نزيف لا يتوقف.",art7_title:"التعامل مع التسمم الغذائي",art7_desc:"أكثر من شرب السوائل لتجنب الجفاف، وتجنب الأطعمة الصلبة أو الدسمة حتى تستقر المعدة. راجع الطبيب إذا استمرت الأعراض.",art8_title:"ضربة الشمس والإجهاد الحراري",art8_desc:"انقل المصاب فوراً لمكان بارد ومظلل، وقم بتبريد جسمه باستخدام كمادات ماء بارد، واعطه رشفات من الماء إذا كان واعياً.",art9_title:"لدغات الحشرات واللسعات",art9_desc:"أزل إبرة الحشرة بلطف إن وجدت، واغسل المكان بالماء والصابون، ثم ضع كمادة باردة لتقليل التورم وتخفيف الألم.",art10_title:"الاختناق والغصة (مناورة هايمليخ)",art10_desc:"قف خلف المصاب ولف ذراعيك حول خصره، ثم قم بتوجيه 5 ضغطات قوية للداخل والأعلى أعلى السرة بقليل لدفع الجسم الغريب.",art11_title:"العناية بالجروح المفتوحة",art11_desc:"اضغط مباشرة على الجرح بقطعة قماش نظيفة لوقف النزيف. اغسله بالماء الجاري بلطف، وضع مرهماً مضاداً حيوياً وضمادة معقمة.",art12_title:"التعامل مع نوبات الصرع",art12_desc:"أبعد الأشياء الحادة، وضع شيئاً ناعماً تحت رأس المصاب. لا تحاول تقييد حركته أو وضع شيء في فمه، وراقب وقت النوبة.",art13_title:"الكسور والالتواءات المفاجئة",art13_desc:"لا تحاول تقويم العظم المكسور. قم بتثبيت الطرف المصاب باستخدام جبيرة مؤقتة، وضع ثلجاً لتخفيف التورم واطلب المساعدة.",art14_title:"صدمة الحساسية المفرطة",art14_desc:"حالة طارئة تتطلب تدخلاً فورياً. استخدم حقنة الإيبينفرين (EpiPen) إذا كانت متوفرة لدى المريض، واتصل بالطوارئ فوراً.",art15_title:"حالات الإغماء وفقدان الوعي",art15_desc:"اجعل الشخص يستلقي على ظهره وارفع ساقيه قليلاً فوق مستوى القلب لزيادة تدفق الدم للدماغ، وقم بإرخاء ملابسه الضيقة.",art16_title:"الحفاظ على صحة الكليتين",art16_desc:"اشرب كميات كافية من الماء يومياً، وقلل من تناول الملح والسكريات، وتجنب الإفراط في استخدام المسكنات بدون استشارة طبية.",hero_badge:"منصة التمريض السورية",dashboard:"لوحة التحكم",nurse_login:"دخول الممرضين",logout:"خروج",hero_title:"ابحث عن ممرض/ممرضة بالقرب من منطقتك",hero_subtitle:"تواصل مباشرة مع ممرضين وممرضات محترفين في جميع المحافظات السورية",registered_nurses:"ممرض/ة مسجل",governorates:"محافظة سورية",reviews:"تقييم",governorate:"المحافظة",select_govs:"المحافظات (يمكن اختيار أكثر من واحدة)",select_one_gov:"الرجاء اختيار محافظة واحدة على الأقل",all_areas:"جميع المحافظات",gender:"الجنس",profession:"المهنة",nurse_m:"ممرض",nurse_f:"ممرضة",midwife:"قابلة",all:"الكل",male:"ذكر",female:"أنثى",experience:"الخبرة",less_2_years:"أقل من سنتين","2_5_years":"٢ - ٥ سنوات","5_plus_years":"أكثر من ٥ سنوات",sort_by:"ترتيب حسب",filters_toggle:"الفلاتر والترتيب",highest_rated:"الأعلى تقييماً",most_experienced:"الأكثر خبرة",newest:"الأحدث",search_placeholder:"ابحث بالاسم أو المنطقة...",search:"بحث",showing:"عرض",nurses_found:"نتيجة",reset_filters:"إعادة تعيين",favorites_only:"المفضلة",export_pdf:"تقرير PDF",export_id:"تصدير بطاقة العمل",checklists_title:"القوائم المرجعية (معداتي)",firstaid_tab:"الإسعافات",dressing_tab:"أدوات الغيار",id_exported:"تم تصدير البطاقة بنجاح",no_results:"لا توجد نتائج",try_different_filters:"حاول تعديل معايير البحث أو الفلاتر",load_more:"تحميل المزيد",press_hint:"اضغط مطولاً على اسم الممرض/ة (أو زر ⓘ) لعرض كامل معلوماته",login:"دخول",register:"تسجيل",email:"البريد الإلكتروني",password:"كلمة المرور",login_btn:"تسجيل الدخول",register_btn:"إنشاء حساب",full_name:"الاسم الكامل",age:"العمر",years_experience:"سنوات الخبرة",city_area:"المنطقة / الحي",university:"الجامعة / المعهد",phone:"رقم الهاتف",whatsapp:"رقم الواتساب",welcome:"مرحباً",manage_profile:"إدارة ملفك المهني",back_to_search:"العودة للبحث",avg_rating:"متوسط التقييم",total_reviews:"إجمالي التقييمات",years_exp:"سنوات الخبرة",availability:"أيام العمل والتفرغ",availability_days_desc:"اختر الأيام التي تكون فيها متفرغاً لاستقبال طلبات العمل. ستظهر للمستخدمين فقط في هذه الأيام.",sun:"الأحد",mon:"الإثنين",tue:"الثلاثاء",wed:"الأربعاء",thu:"الخميس",fri:"الجمعة",sat:"السبت",profile_information:"معلومات الملف الشخصي",save_changes:"حفظ التغييرات",rate_nurse:"قيّم هذا الممرض/ة",rate_description:"شارك تجربتك لمساعدة الآخرين",comment_optional:"تعليق (اختياري)",submit_rating:"إرسال التقييم",whatsapp_action:"واتساب",call_action:"اتصال",share_whatsapp:"مشاركة عبر واتساب",reviews_title:"تعليقات المستخدمين",no_reviews_yet:"لا توجد تعليقات نصية بعد.",available:"متاح/ة",unavailable:"غير متاح/ة",yrs:"سنة",reviews_count:"تقييم",review:"تقييم",login_success:"تم تسجيل الدخول بنجاح!",register_success:"تم التسجيل بنجاح! أهلاً بك في المنصة",profile_updated:"تم تحديث الملف الشخصي بنجاح!",availability_updated:"تم تحديث أيام العمل بنجاح!",rating_submitted:"شكراً لك! تم إرسال تقييمك.",sending:"جاري الإرسال...",error_occurred:"حدث خطأ. يرجى المحاولة مرة أخرى.",select_rating:"يرجى اختيار تقييم",logged_out:"تم تسجيل الخروج بنجاح",verify_title:"وثّق حسابك (اختياري)",verify_subtitle:"احصل على العلامة الزرقاء برفع الشهادتين",graduation_cert:"شهادة التخرج",practice_license:"شهادة مزاولة المهنة",choose_file:"اختر صورة...",verification_status:"حالة التوثيق",not_verified:"حسابك غير موثق بعد. قم برفع الشهادتين للحصول على العلامة الزرقاء",verified:"حساب موثق! لقد حصلت على العلامة الزرقاء",save_verification:"حفظ التوثيق",verification_saved:"تم حفظ التوثيق بنجاح!",file_too_large:"حجم الملف كبير جداً (الحد الأقصى 10MB)",images_only:"الرجاء اختيار ملف صورة (JPG أو PNG)",select_files:"الرجاء اختيار صورة واحدة على الأقل",disclaimer_text:"<strong>إقرار المسؤولية:</strong> أقر بأن جميع المعلومات التي أدخلتها صحيحة ودقيقة، وأتحمل المسؤولية القانونية الكاملة في حال ثبوت خلاف ذلك.",danger_zone:"منطقة الخطر",delete_desc:"يمكنك حذف حسابك وجميع بياناتك نهائياً من المنصة. هذا الإجراء لا يمكن التراجع عنه.",delete_account:"حذف الحساب",delete_warning:"تحذير: سيتم حذف حسابك وملفك وشهاداتك نهائياً ولا يمكن التراجع. للتأكيد اكتب كلمة Delete أدناه.",delete_confirm_label:"اكتب Delete للتأكيد",delete_confirm_btn:"حذف الحساب نهائياً",account_deleted:"تم حذف الحساب وجميع البيانات بنجاح",info_age:"العمر",info_exp:"الخبرة",info_gov:"المحافظة/المحافظات",info_area:"المنطقة",info_uni:"الجامعة / المعهد",info_phone:"الهاتف",info_whatsapp:"واتساب",info_rating:"التقييم",gender_locked_note:"لا يمكن تغيير الجنس والمهنة بعد إنشاء الحساب",footer_rights:"© 2026 ممرض/ة في منطقتك. جميع الحقوق محفوظة.",footer_privacy:"سياسة الخصوصية",footer_terms:"شروط الاستخدام",footer_contact:"اتصل بنا",footer_credit:"تطوير",site_visits:"عدد زيارات الموقع",services:"الخدمات المقدمة",select_services:"اختر الخدمات التي يمكنك تقديمها",no_services:"لم يتم تحديد خدمات بعد",edit_gender_profession:"تعديل",gender_profession_editable_note:"يمكنك الآن تعديل الجنس والمهنة، لا تنس حفظ التغييرات"},
+  en: {brand_name:"Nurse in Your Area",brand_sub:"Syrian Nursing Platform",nav_magazine:"Magazine",mag_title:"Health & First Aid Magazine",mag_subtitle:"Medical tips and guidelines",art1_title:"First Aid for Burns",art1_desc:"Place the burn under cool running water for 10-15 minutes. Do not use ice or toothpaste, and cover with a sterile, non-stick dressing.",art2_title:"Cardiopulmonary Resuscitation (CPR)",art2_desc:"If pulse and breathing stop, begin fast and hard chest compressions (100-120 per minute) in the center of the chest until help arrives.",art3_title:"Handling Nosebleeds",art3_desc:"Sit and lean slightly forward (not backward). Pinch the soft part of the nose for 10 continuous minutes and breathe through your mouth.",art4_title:"Signs of Hypoglycemia",art4_desc:"Symptoms include sweating, trembling, extreme hunger, and dizziness. Give a conscious patient a sugary drink or candy immediately.",art5_title:"Measuring BP at Home",art5_desc:"Rest for 5 minutes before measuring. Sit with your back supported, feet flat on the floor, and arm at heart level. Avoid talking.",art6_title:"When to Call Emergencies?",art6_desc:"Seek immediate help for: severe chest pain, breathing difficulty, loss of consciousness, sudden weakness on one side, or uncontrollable bleeding.",art7_title:"Handling Food Poisoning",art7_desc:"Drink plenty of fluids to avoid dehydration. Avoid solid or fatty foods until the stomach settles. See a doctor if symptoms persist.",art8_title:"Heatstroke & Exhaustion",art8_desc:"Move the person to a cool, shaded area immediately. Cool their body with cold water compresses and give sips of water if conscious.",art9_title:"Insect Stings & Bites",art9_desc:"Gently remove the stinger if present, wash the area with soap and water, and apply a cold compress to reduce swelling and pain.",art10_title:"Choking (Heimlich Maneuver)",art10_desc:"Stand behind the person, wrap your arms around their waist, and give 5 quick upward abdominal thrusts just above the navel.",art11_title:"Caring for Open Wounds",art11_desc:"Apply direct pressure with a clean cloth to stop bleeding. Wash gently with running water, apply antibiotic ointment, and cover.",art12_title:"Handling Epileptic Seizures",art12_desc:"Clear sharp objects away and cushion the head. Do not restrain them or put anything in their mouth. Time the seizure.",art13_title:"Fractures and Sprains",art13_desc:"Do not try to realign the bone. Immobilize the injured limb, apply ice to reduce swelling, and seek immediate medical help.",art14_title:"Anaphylactic Shock",art14_desc:"A severe emergency. Use an epinephrine auto-injector (EpiPen) immediately if available, and call emergency services right away.",art15_title:"Fainting and Passing Out",art15_desc:"Lay the person flat on their back and elevate their legs slightly above heart level to increase blood flow to the brain. Loosen tight clothing.",art16_title:"Maintaining Kidney Health",art16_desc:"Drink adequate amounts of water daily, reduce salt and sugar intake, and avoid overusing painkillers without medical advice.",hero_badge:"Syrian Nursing Platform",dashboard:"Dashboard",nurse_login:"Nurse Login",logout:"Logout",hero_title:"Find a Nurse Near Your Area",hero_subtitle:"Connect directly with professional nurses across all Syrian governorates",registered_nurses:"Registered Nurses",governorates:"Syrian Governorates",reviews:"Reviews",governorate:"Governorate",select_govs:"Governorates (Select one or more)",select_one_gov:"Please select at least one governorate",all_areas:"All Governorates",gender:"Gender",profession:"Profession",nurse_m:"Male Nurse",nurse_f:"Female Nurse",midwife:"Midwife",all:"All",male:"Male",female:"Female",experience:"Experience",less_2_years:"Less than 2 years","2_5_years":"2 - 5 years","5_plus_years":"5+ years",sort_by:"Sort By",filters_toggle:"Filters & Sorting",highest_rated:"Highest Rated",most_experienced:"Most Experienced",newest:"Newest",search_placeholder:"Search by name or area...",search:"Search",showing:"Showing",nurses_found:"results",reset_filters:"Reset",favorites_only:"Favorites",export_pdf:"Print PDF",export_id:"Export ID Card",checklists_title:"My Checklists",firstaid_tab:"First Aid",dressing_tab:"Dressing Kit",id_exported:"ID Exported Successfully",no_results:"No results found",try_different_filters:"Try adjusting your filters",load_more:"Load More",press_hint:"Long-press a nurse's name (or tap ⓘ) to view full details",login:"Login",register:"Register",email:"Email",password:"Password",login_btn:"Login",register_btn:"Create Account",full_name:"Full Name",age:"Age",years_experience:"Years of Experience",city_area:"City / Area",university:"University / Institute",phone:"Phone Number",whatsapp:"WhatsApp Number",welcome:"Welcome",manage_profile:"Manage your professional profile",back_to_search:"Back to Search",avg_rating:"Average Rating",total_reviews:"Total Reviews",years_exp:"Years Experience",availability:"Availability Days",availability_days_desc:"Choose the days you are available to work. You will only appear to users on these days.",sun:"Sun",mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",profile_information:"Profile Information",save_changes:"Save Changes",rate_nurse:"Rate This Nurse",rate_description:"Share your experience to help others",comment_optional:"Comment (Optional)",submit_rating:"Submit Rating",whatsapp_action:"WhatsApp",call_action:"Call",share_whatsapp:"Share via WhatsApp",reviews_title:"User Reviews",no_reviews_yet:"No text reviews yet.",available:"Available",unavailable:"Unavailable",yrs:"yrs",reviews_count:"reviews",review:"review",login_success:"Login successful!",register_success:"Registration successful! Welcome aboard",profile_updated:"Profile updated successfully!",availability_updated:"Availability days updated!",rating_submitted:"Thank you! Rating submitted.",sending:"Sending...",error_occurred:"An error occurred. Please try again.",select_rating:"Please select a rating",logged_out:"Logged out successfully",verify_title:"Verify Your Account (Optional)",verify_subtitle:"Get the blue badge by uploading both certificates",graduation_cert:"Graduation Certificate",practice_license:"Practice License",choose_file:"Choose image...",verification_status:"Verification Status",not_verified:"Not verified yet. Upload both certificates to get the blue badge",verified:"Verified! You have the blue badge",save_verification:"Save Verification",verification_saved:"Verification saved!",file_too_large:"File too large (Max 10MB)",images_only:"Please choose an image file (JPG/PNG)",select_files:"Please select at least one image",disclaimer_text:"<strong>Liability Acknowledgment:</strong> I confirm all information provided is true and accurate, and I bear full legal responsibility otherwise.",danger_zone:"Danger Zone",delete_desc:"You can permanently delete your account and all your data. This action cannot be undone.",delete_account:"Delete Account",delete_warning:"Warning: Your account, profile and certificates will be permanently deleted. To confirm, type Delete below.",delete_confirm_label:"Type Delete to confirm",delete_confirm_btn:"Permanently Delete Account",account_deleted:"Account and all data deleted successfully",info_age:"Age",info_exp:"Experience",info_gov:"Governorates",info_area:"Area",info_uni:"University / Institute",info_phone:"Phone",info_whatsapp:"WhatsApp",info_rating:"Rating",gender_locked_note:"Gender and Profession cannot be changed after creation",footer_rights:"© 2026 Nurse in Your Area. All rights reserved.",footer_privacy:"Privacy Policy",footer_terms:"Terms of Service",footer_contact:"Contact Us",footer_credit:"Developed by",site_visits:"Total Site Visits",services:"Services Offered",select_services:"Select the services you can provide",no_services:"No services specified yet",edit_gender_profession:"Edit",gender_profession_editable_note:"You can now edit gender and profession, don't forget to save changes"}
 };
 
 const CL_DATA = {
     firstaid: ['قفازات طبية', 'شاش معقم', 'مقص طبي', 'شريط لاصق', 'مسحات كحولية', 'ميزان حرارة', 'كمامات طبية', 'ضمادات جروح'],
     dressing: ['محلول ملحي (سيروم)', 'بيتادين (معقم جروح)', 'قطن طبي', 'ملاقط جراحية', 'بلاستر عريض', 'شاش فازلين', 'سرنجات (حقن)']
 };
+
+const SERVICES_LIST = ['تضميد الجروح', 'حقن عضلي ووريدي', 'تركيب المحاليل الوريدية (سيروم)', 'قياس الضغط والسكري', 'رعاية كبار السن', 'العناية بمرضى الفراش', 'متابعة ما بعد العمليات الجراحية', 'التمريض المنزلي الليلي', 'سحب عينات الفحص المخبري', 'رعاية الحوامل وما بعد الولادة', 'تركيب قسطرة بولية', 'الإسعافات الأولية الطارئة', 'تعقيم وتنظيف الجروح المزمنة', 'متابعة مرضى السكري والجرعات'];
 
 const S = {
   lang: localStorage.getItem('lang') || 'ar',
@@ -856,6 +885,18 @@ function init(){
     document.getElementById('profileGovernorates').appendChild(l2);
   });
 
+  SERVICES_LIST.forEach(s => {
+    const l1 = document.createElement('label'); l1.className = 'day-chip';
+    l1.innerHTML = `<input type="checkbox" value="${s}"><span>${s}</span>`;
+    document.getElementById('regServices').appendChild(l1);
+
+    const l2 = document.createElement('label'); l2.className = 'day-chip';
+    l2.innerHTML = `<input type="checkbox" value="${s}"><span>${s}</span>`;
+    document.getElementById('profileServices').appendChild(l2);
+  });
+
+  trackAndShowVisits();
+
   buildRatingStars();
   bindPress();
   applyLang();
@@ -869,6 +910,28 @@ function init(){
     if (u) { await loadProfile(u.uid); if (S.view === 'auth') navigate('dashboard'); }
   });
   loadInitial();
+}
+
+async function trackAndShowVisits(){
+  const el = document.getElementById('footerVisitsNum');
+  try {
+    const ref = window.F.doc(window.firebaseDb, 'stats', 'siteStats');
+    let count;
+    if (!sessionStorage.getItem('visitCounted')) {
+      count = await window.F.runTransaction(window.firebaseDb, async tx => {
+        const snap = await tx.get(ref);
+        const cur = snap.exists() ? (snap.data().visits || 0) : 0;
+        const next = cur + 1;
+        tx.set(ref, { visits: next }, { merge: true });
+        return next;
+      });
+      sessionStorage.setItem('visitCounted', '1');
+    } else {
+      const snap = await window.F.getDoc(ref);
+      count = snap.exists() ? (snap.data().visits || 0) : 0;
+    }
+    if (el) el.textContent = count.toLocaleString(S.lang === 'ar' ? 'ar-EG' : 'en-US');
+  } catch(e) { console.error(e); if (el) el.textContent = '—'; }
 }
 
 function bindRapidEntry() {
@@ -1004,6 +1067,10 @@ function fillInfo(n){
     '<div class="info-item"><div class="info-label">'+d.info_gov+'</div><div class="info-value">'+esc(govsStr||'')+'</div></div>'+
     '<div class="info-item"><div class="info-label">'+d.info_area+'</div><div class="info-value">'+esc(n.cityArea||'')+'</div></div>'+
     '<div class="info-item full"><div class="info-label">'+d.info_uni+'</div><div class="info-value">'+esc(n.university||'')+'</div></div>'+
+    '</div>'+
+    '<div class="info-services">'+
+    '<div class="info-services-label">'+d.services+'</div>'+
+    '<div class="info-services-chips">'+((n.services && n.services.length) ? n.services.map(s => '<span class="service-chip">'+esc(s)+'</span>').join('') : '<span class="info-services-empty">'+d.no_services+'</span>')+'</div>'+
     '</div>'+
     '<div class="info-contacts">'+
     '<div class="info-contact"><div class="info-contact-label">'+d.info_phone+'</div><div class="info-contact-value">'+esc(n.phoneNumber||'-')+'</div></div>'+
@@ -1212,6 +1279,7 @@ async function handleRegister(e){
   
   const govs = Array.from(document.querySelectorAll('#regGovernorates input:checked')).map(cb => cb.value);
   if (govs.length === 0) { toast(d.select_one_gov, 'error'); return; }
+  const services = Array.from(document.querySelectorAll('#regServices input:checked')).map(cb => cb.value);
 
   try {
     const cred = await window.F.createUserWithEmailAndPassword(window.firebaseAuth, document.getElementById('regEmail').value, document.getElementById('regPassword').value);
@@ -1222,6 +1290,7 @@ async function handleRegister(e){
       gender: document.getElementById('regGender').value,
       profession: document.getElementById('regProfession').value,
       governorates: govs,
+      services: services,
       cityArea: document.getElementById('regCityArea').value,
       university: document.getElementById('regUniversity').value,
       yearsOfExperience: parseInt(document.getElementById('regExperience').value),
@@ -1359,10 +1428,23 @@ function updateDashboard(){
   document.getElementById('profileExperience').value = p.yearsOfExperience || '';
   document.getElementById('profileGender').value = p.gender || 'male';
   document.getElementById('profileProfession').value = p.profession || (p.gender === 'female' ? 'nurse_f' : 'nurse_m');
+  document.getElementById('profileGender').disabled = true;
+  document.getElementById('profileProfession').disabled = true;
+  document.getElementById('genderProfessionNote').textContent = d.gender_locked_note;
+  document.getElementById('editGenderProfBtn').classList.remove('hidden');
   document.getElementById('profilePhone').value = p.phoneNumber || '';
   document.getElementById('profileWhatsapp').value = p.whatsappNumber || '';
+  const pServices = p.services || [];
+  document.querySelectorAll('#profileServices input').forEach(cb => { cb.checked = pServices.includes(cb.value); });
 
   if (S.user) { loadNurseReviews(S.user.uid); }
+}
+
+function enableGenderProfessionEdit(){
+  document.getElementById('profileGender').disabled = false;
+  document.getElementById('profileProfession').disabled = false;
+  document.getElementById('genderProfessionNote').textContent = T[S.lang].gender_profession_editable_note;
+  document.getElementById('editGenderProfBtn').classList.add('hidden');
 }
 
 async function saveVerification(){
@@ -1383,12 +1465,16 @@ async function handleProfileUpdate(e){
   if (!S.user) return;
   const govs = Array.from(document.querySelectorAll('#profileGovernorates input:checked')).map(cb => cb.value);
   if (govs.length === 0) { toast(T[S.lang].select_one_gov, 'error'); return; }
+  const services = Array.from(document.querySelectorAll('#profileServices input:checked')).map(cb => cb.value);
 
   try {
     await window.F.updateDoc(window.F.doc(window.firebaseDb, 'nurses', S.user.uid), {
       fullName: document.getElementById('profileName').value,
       age: parseInt(document.getElementById('profileAge').value),
+      gender: document.getElementById('profileGender').value,
+      profession: document.getElementById('profileProfession').value,
       governorates: govs,
+      services: services,
       cityArea: document.getElementById('profileCityArea').value,
       university: document.getElementById('profileUniversity').value,
       yearsOfExperience: parseInt(document.getElementById('profileExperience').value),
@@ -1501,7 +1587,7 @@ function card(n){
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.city_area+'</div><div class="card-detail-value">'+esc(n.cityArea||'')+'</div></div></div>'+
   '<div class="card-detail"><svg class="card-detail-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M6 21 C6 17 8.7 14 12 14 C15.3 14 18 17 18 21" stroke="currentColor" stroke-width="2"/></svg><div><div class="card-detail-label">'+d.profession+'</div><div class="card-detail-value">'+(n.profession ? d[n.profession] : (n.gender==='female'?d.nurse_f:d.nurse_m))+'</div></div></div>'+
   '</div><div class="card-rating"><div class="stars">'+stars(r)+'</div><span class="rating-text"><strong>'+r.toFixed(1)+'</strong> ('+rv+' '+(rv===1?d.review:d.reviews_count)+')</span></div>'+
-  '<div class="card-actions"><a href="https://wa.me/'+(n.whatsappNumber||'')+'" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.3C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.7 1.7.7 1.9.1.1.1.3 0 .4-.1.2-.1.3-.3.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg><span class="btn-txt">'+d.whatsapp_action+'</span></a><a href="tel:'+(n.phoneNumber||'')+'" class="btn btn-call btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span class="btn-txt">'+d.call_action+'</span></a><button class="btn btn-rate btn-sm" onclick="openRateModal(\''+n.id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 19 L6 22 L7 15 L2 10 L9 9 Z"/></svg></button></div></div>';
+  '<div class="card-actions"><a href="https://wa.me/'+(n.whatsappNumber||'')+'" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.9 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg><span class="btn-txt">'+d.whatsapp_action+'</span></a><a href="tel:'+(n.phoneNumber||'')+'" class="btn btn-call btn-sm"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span class="btn-txt">'+d.call_action+'</span></a><button class="btn btn-rate btn-sm" onclick="openRateModal(\''+n.id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 19 L6 22 L7 15 L2 10 L9 9 Z"/></svg></button></div></div>';
 }
 
 function stars(r){
@@ -1534,21 +1620,6 @@ function resetFilters(){
   document.getElementById('favFilterBtn').classList.add('btn-ghost');
   S.filters = { governorate:'', profession:'', experience:'', sort:'rating', search:'', favOnly: false };
   loadInitial();
-}
-
-function exportCSV() {
-    const d = T[S.lang];
-    const disp = applyFilters(S.nurses);
-    let csv = `\uFEFF${d.full_name},${d.info_gov},${d.experience},${d.info_phone},${d.avg_rating}\n`;
-    disp.forEach(n => {
-        const govsStr = (n.governorates || (n.governorate ? [n.governorate] : [])).join('، ');
-        csv += `"${n.fullName}","${govsStr} - ${n.cityArea}","${n.yearsOfExperience}","${n.phoneNumber}","${n.ratingAvg}"\n`;
-    });
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'Nurses_Report.csv';
-    link.click();
 }
 
 function exportPDF() {
@@ -1715,8 +1786,8 @@ window.toggleFavFilter = toggleFavFilter;
 window.toggleFavorite = toggleFavorite;
 window.openContactModal = openContactModal;
 window.closeContactModal = closeContactModal;
-window.exportCSV = exportCSV;
 window.exportPDF = exportPDF;
+window.enableGenderProfessionEdit = enableGenderProfessionEdit;
 window.generateIDCard = generateIDCard;
 window.toggleCL = toggleCL;
 window.switchCL = switchCL;
